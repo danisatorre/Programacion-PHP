@@ -1,0 +1,4 @@
+READ ALL:
+1. Entrar al controlador
+2. Entrar a la operación de list
+3. Entrar en el DAO y ver que funcione la funcion "select_all_courses"
