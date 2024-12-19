@@ -5,23 +5,24 @@
 		function insert_user($datos){
 			// die('<script>console.log('.json_encode( $datos ) .');</script>');
 
-			$user=$datos['usuario'];
-        	$passwd=$datos['pass'];
-        	$name=$datos['nombre'];
-        	$dni=$datos['DNI'];
-        	$sex=$datos['sexo'];
-        	$birthdate=$datos['fecha_nacimiento'];
-        	$age=$datos['edad'];
-        	$country=$datos['pais'];
+			$id=$datos['id'];
+        	$name=$datos['name'];
+        	$description=$datos['description'];
+        	$category=$datos['category'];
+        	$lvl=$datos['lvl'];
+        	$fini=$datos['fini'];
+        	$ffin=$datos['ffin'];
+        	$price=$datos['price'];
+			$hours=$datos['hours'];
         	foreach ($datos['idioma'] as $indice) {
         	    $language=$language."$indice:";
         	}
         	$comment=$datos['observaciones'];
-        	foreach ($datos['aficion'] as $indice) {
-        	    $hobby=$hobby."$indice:";
-        	}
-        	$sql = "INSERT INTO usuario (user, pass, name, dni, sex, birthdate, age, country, language, comment, hobby)"
-        		. "VALUES ('$user', '$passwd', '$name', '$dni', '$sex', '$birthdate', '$age', '$country', '$language', '$comment', '$hobby')";
+        	// foreach ($datos['aficion'] as $indice) {
+        	//     $hobby=$hobby."$indice:";
+        	// }
+        	$sql = "INSERT INTO course (id, name, description, category, lvl, fini, ffin, price, hours, language, comment, hobby)"
+        		. "VALUES ('$id', '$name', '$description', '$category', '$lvl', '$fini', '$ffin', '$price', hours, '$language', '$comment', '$hobby')";
             
 			// die('<script>console.log('.json_encode( $sql ) .');</script>');
             $conexion = connect::con();
@@ -33,7 +34,7 @@
 		function select_all_user(){
 			// $data = 'hola DAO select_all_user';
             // die('<script>console.log('.json_encode( $data ) .');</script>');
-			$sql = "SELECT * FROM usuario ORDER BY user ASC";
+			$sql = "SELECT * FROM course ORDER BY id ASC";
 			
 			$conexion = connect::con();
             $res = mysqli_query($conexion, $sql);
@@ -41,10 +42,10 @@
             return $res;
 		}
 		
-		function select_user($user){
+		function select_user($id){
 			// $data = 'hola DAO select_user';
             // die('<script>console.log('.json_encode( $data ) .');</script>');
-			$sql = "SELECT * FROM usuario WHERE user='$user'";
+			$sql = "SELECT * FROM course WHERE id='$id'";
 			
 			$conexion = connect::con();
             $res = mysqli_query($conexion, $sql)->fetch_object();
@@ -54,23 +55,24 @@
 		
 		function update_user($datos){
 			//die('<script>console.log('.json_encode( $datos ) .');</script>');
-			$user=$datos['usuario'];
-        	$passwd=$datos['pass'];
-        	$name=$datos['nombre'];
-        	$dni=$datos['DNI'];
-        	$sex=$datos['sexo'];
-        	$birthdate=$datos['fecha_nacimiento'];
-        	$age=$datos['edad'];
-        	$country=$datos['pais'];
+			$id=$datos['id'];
+        	$name=$datos['name'];
+        	$description=$datos['description'];
+        	$category=$datos['category'];
+        	$lvl=$datos['lvl'];
+        	$fini=$datos['fini'];
+        	$ffin=$datos['ffin'];
+        	$price=$datos['price'];
+			$hours=$datos['hours'];
         	foreach ($datos['idioma'] as $indice) {
         	    $language=$language."$indice:";
         	}
         	$comment=$datos['observaciones'];
-        	foreach ($datos['aficion'] as $indice) {
-        	    $hobby=$hobby."$indice:";
-        	}
+        	// foreach ($datos['aficion'] as $indice) {
+        	//     $hobby=$hobby."$indice:";
+        	// }
         	
-        	$sql = " UPDATE usuario SET pass='$passwd', name='$name', dni='$dni', sex='$sex', birthdate='$birthdate', age='$age',"
+        	$sql = " UPDATE course SET id='$id', name='$name', description='$description', category='$category', lvl='$lvl', fini='$fini', ffin='$ffin', price='$price', hours='$hours',"
         		. " country='$country', language='$language', comment='$comment', hobby='$hobby' WHERE user='$user'";
             
             $conexion = connect::con();
@@ -80,7 +82,7 @@
 		}
 		
 		function delete_user($user){
-			$sql = "DELETE FROM usuario WHERE user='$user'";
+			$sql = "DELETE FROM course WHERE course='$id'";
 			
 			$conexion = connect::con();
             $res = mysqli_query($conexion, $sql);

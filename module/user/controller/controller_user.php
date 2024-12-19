@@ -1,5 +1,5 @@
 <?php
-    //$data = 'hola crtl user';
+    //$data = 'hola crtl courses';
     //die('<script>console.log('.json_encode( $data ) .');</script>');
 
     include ("module/user/model/DAOUser.php");
@@ -7,8 +7,8 @@
     
     switch($_GET['op']){
         case 'list';
-            // $data = 'hola crtl user';
-            // die('<script>console.log('.json_encode( $data ) .');</script>');
+            //$data = 'hola crtl courses list';
+            //die('<script>console.log('.json_encode( $data ) .');</script>');
               
             try{
                 $daouser = new DAOUser();
@@ -57,7 +57,7 @@
                     
 		            if($rdo){
                         echo '<script language="javascript">setTimeout(() => {
-                            toastr.success("Creado en la base de datos correctamente");
+                            toastr.success("Curso creado exitosamente");
                         }, 1000);</script>';
                         echo '<script language="javascript">setTimeout(() => {
                             window.location.href="index.php?page=controller_user&op=list";
@@ -141,7 +141,7 @@
             try{
                 $daouser = new DAOUser();
             	$rdo = $daouser->select_user($_GET['id']);
-            	$user=get_object_vars($rdo);
+            	$id=get_object_vars($rdo);
                 //die('<script>console.log('.json_encode( $user ) .');</script>');
             }catch (Exception $e){
                 $callback = 'index.php?page=503';

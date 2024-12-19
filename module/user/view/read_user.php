@@ -1,103 +1,85 @@
 <div id="contenido">
-    <h1>Informacion del Usuario</h1>
+    <h1>Informacion del curso</h1>
     <p>
     <table border='2'>
         <tr>
-            <td>Usuario: </td>
+            <td>ID: </td>
             <td>
                 <?php
-                    echo $user['user'];
+                    echo $id['id'];
                 ?>
             </td>
         </tr>
     
         <tr>
-            <td>Contraseña: </td>
-            <td>
-                <?php
-                    echo $user['pass'];
-                ?>
-            </td>
-        </tr>
-        
-        <tr>
             <td>Nombre: </td>
             <td>
                 <?php
-                    echo $user['name'];
+                    echo $id['name'];
                 ?>
             </td>
         </tr>
         
         <tr>
-            <td>DNI: </td>
+            <td>Descripcion: </td>
             <td>
                 <?php
-                    echo $user['dni'];
+                    echo $id['description'];
                 ?>
             </td>
         </tr>
         
         <tr>
-            <td>Sexo: </td>
+            <td>Categoria: </td>
             <td>
                 <?php
-                    echo $user['sex'];
+                    echo $id['category'];
                 ?>
             </td>
         </tr>
         
         <tr>
-            <td>Fecha de nacimiento: </td>
+            <td>Nivel: </td>
             <td>
                 <?php
-                    echo $user['birthdate'];
+                    echo $id['lvl'];
                 ?>
             </td>
         </tr>
         
         <tr>
-            <td>Edad: </td>
+            <td>Fecha de inicio: </td>
             <td>
                 <?php
-                    echo $user['age'];
+                    echo $id['fini'];
+                ?>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Fecha de fin: </td>
+            <td>
+                <?php
+                    echo $id['ffin'];
                 ?>
             </td>
             
         </tr>
         
         <tr>
-            <td>Pais: </td>
+            <td>Precio: </td>
             <td>
                 <?php
-                    echo $user['country'];
+                    echo $id['price'];
                 ?>
             </td>
         </tr>
         
         <tr>
-            <td>Idioma: </td>
+            <td>Horas: </td>
             <td>
                 <?php
-                    echo $user['language'];
-                ?>
-            </td>
-        </tr>
-        
-        <tr>
-            <td>Observaciones: </td>
-            <td>
-                <?php
-                    echo $user['comment'];
-                ?>
-            </td>
-        </tr>
-        
-        <tr>
-            <td>Aficiones: </td>
-            <td>
-                <?php
-                    echo $user['hobby'];
+                    echo $id['hours'];
                 ?>
             </td>
         </tr>
