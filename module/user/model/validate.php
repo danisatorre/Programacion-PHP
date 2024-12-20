@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
     function validate_nombre($nombre){
         $sql = "SELECT * FROM usuario WHERE name='$nombre'";
 
@@ -45,3 +45,4 @@
 
         return $check;
     }
+?> -->

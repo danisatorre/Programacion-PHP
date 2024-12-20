@@ -2,3 +2,60 @@ READ ALL:
 1. Entrar al controlador
 2. Entrar a la operación de list
 3. Entrar en el DAO y ver que funcione la funcion "select_all_courses"
+(create_users.php){
+    <tr>
+        <td>Fecha de nacimiento: </td>
+        <td><input id="fecha" type="text" name="fecha_nacimiento" placeholder="fecha de nacimiento" value=""/></td>
+        <td><font color="red">
+            <span id="error_fecha_nacimiento" class="error">
+                <?php
+                    echo "$error_fecha_nacimiento";
+                ?>
+            </span>
+        </font></font></td>
+    </tr>
+    
+            <tr>
+                <td>Idioma: </td>
+                <td><select multiple size="3" id="idioma[]" name="idioma[]" placeholder="idioma">
+                    <option value="Español">Español</option>
+                    <option value="Ingles">Ingles</option>
+                    <option value="Portugues">Portugues</option>
+                    <option value="Frances">Frances</option>
+                    </select></td>
+                <td><font color="red">
+                    <span id="error_idioma" class="error">
+                        <?php
+                            echo "$error_idioma";
+                        ?>
+                    </span>
+                </font></font></td>
+            </tr>
+            
+            <tr>
+                <td>Observaciones: </td>
+                <td><textarea cols="30" rows="5" id="observaciones" name="observaciones" placeholder="observaciones" value=""></textarea></td>
+                <td><font color="red">
+                    <span id="error_observaciones" class="error">
+                        <?php
+                            echo "$error_observaciones";
+                        ?>
+                    </span>
+                </font></font></td>
+            </tr>
+            
+            <tr>
+                <td>Aficiones: </td>
+                <td><input type="checkbox" id= "aficion[]" name="aficion[]" placeholder= "aficion" value="Informatica"/>informatica
+                    <input type="checkbox" id= "aficion[]" name="aficion[]" placeholder= "aficion" value="Alimentacion"/>alimentacion
+                    <input type="checkbox" id= "aficion[]" name="aficion[]" placeholder= "aficion" value="Automovil"/>automovil</td>
+                <td><font color="red">
+                    <span id="error_aficion" class="error">
+                        <?php
+                            echo "$error_aficion";
+                        ?>
+                    </span>
+                </font></font></td>
+            </tr>
+            
+}
