@@ -156,12 +156,12 @@
             break;
             
         case 'delete';
-            // $data = 'hola crtl user delete';
+            // $data = 'hola crtl course delete';
             // die('<script>console.log('.json_encode( $data ) .');</script>');
             // die('<script>console.log('.json_encode( $_GET['id'] ) .');</script>');
 
             if (isset($_POST['delete'])){
-                //die('<script>console.log('.json_encode( $_GET['id'] ) .');</script>');
+                // die('<script>console.log('.json_encode( $_GET['id'] ) .');</script>');
                 try{
                     $daouser = new DAOUser();
                 	$rdo = $daouser->delete_user($_GET['id']);
@@ -171,7 +171,7 @@
                 }
             	if($rdo){
                     echo '<script language="javascript">setTimeout(() => {
-                        toastr.success("Borrado en la base de datos correctamente");
+                        toastr.success("Curso eliminado correctamente");
                     }, 1000);</script>';
                     echo '<script language="javascript">setTimeout(() => {
                         window.location.href="index.php?page=controller_user&op=list";

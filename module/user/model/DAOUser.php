@@ -64,16 +64,16 @@
         	$ffin=$datos['ffin'];
         	$price=$datos['price'];
 			$hours=$datos['hours'];
-        	foreach ($datos['idioma'] as $indice) {
-        	    $language=$language."$indice:";
-        	}
-        	$comment=$datos['observaciones'];
+        	// foreach ($datos['idioma'] as $indice) {
+        	//     $language=$language."$indice:";
+        	// }
+        	// $comment=$datos['observaciones'];
         	// foreach ($datos['aficion'] as $indice) {
         	//     $hobby=$hobby."$indice:";
         	// }
         	
         	$sql = " UPDATE course SET id='$id', name='$name', description='$description', category='$category', lvl='$lvl', fini='$fini', ffin='$ffin', price='$price', hours='$hours',"
-        		. " country='$country', language='$language', comment='$comment', hobby='$hobby' WHERE user='$user'";
+        		. "WHERE course='$id'";
             
             $conexion = connect::con();
             $res = mysqli_query($conexion, $sql);
@@ -81,8 +81,8 @@
 			return $res;
 		}
 		
-		function delete_user($user){
-			$sql = "DELETE FROM course WHERE course='$id'";
+		function delete_user($id){
+			$sql = "DELETE FROM course WHERE id='$id'";
 			
 			$conexion = connect::con();
             $res = mysqli_query($conexion, $sql);
