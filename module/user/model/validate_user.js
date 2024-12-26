@@ -1,4 +1,4 @@
-function validate_usuario(texto){
+function validate_name(texto){
     if (texto.length > 0){
         var reg=/^[a-zA-Z]*$/;
         return reg.test(texto);
@@ -6,36 +6,35 @@ function validate_usuario(texto){
     return false;
 }
 
-function validate_password(texto){
+// function validate_password(texto){
+//     if (texto.length > 0){
+//         var reg = /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/;
+//         return reg.test(texto);
+//     }
+//     return false;
+// }
+
+function validate_desc(texto){
     if (texto.length > 0){
-        var reg = /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/;
-        return reg.test(texto);
+        return true;
     }
     return false;
 }
 
-function validate_nombre(texto){
-    if (texto.length > 0){
-        var reg=/^[a-zA-Z]*$/;
-        return reg.test(texto);
-    }
-    return false;
-}
+// function validate_DNI(dni){
+//   var numero = dni.substr(0,dni.length-1);
+//   var let = dni.substr(dni.length-1,1);
+//   numero = numero % 23;
+//   var letra='TRWAGMYFPDXBNJZSQVHLCKET';
+//   letra=letra.substring(numero,numero+1);
+//   if (letra!=let){
+//       return false;
+//   }else{
+//       return true;
+//   }
+// }
 
-function validate_DNI(dni){
-  var numero = dni.substr(0,dni.length-1);
-  var let = dni.substr(dni.length-1,1);
-  numero = numero % 23;
-  var letra='TRWAGMYFPDXBNJZSQVHLCKET';
-  letra=letra.substring(numero,numero+1);
-  if (letra!=let){
-      return false;
-  }else{
-      return true;
-  }
-}
-
-function validate_sexo(texto){
+function validate_category(texto){
     var i;
     var ok=0;
     for(i=0; i<texto.length;i++){
@@ -52,51 +51,11 @@ function validate_sexo(texto){
     }
 }
 
-function validate_fecha(texto){
-    if (texto.length > 0){
-        return true;
-    }
-    return false;
-}
-
-function validate_edad(texto){
-    if (texto.length > 0){
-        var reg=/^[0-9]{1,2}$/;
-        return reg.test(texto);
-    }
-    return false;
-}
-
-function validate_pais(texto){
-    if (texto.length > 0){
-        return true;
-    }
-    return false;
-}
-
-function validate_idioma(array){
-    var check=false;
-    for ( var i = 0, l = array.options.length, o; i < l; i++ ){
-        o = array.options[i];
-        if ( o.selected ){
-            check= true;
-        }
-    }
-    return check;
-}
-
-function validate_observaciones(texto){
-    if (texto.length > 0){
-        return true;
-    }
-    return false;
-}
-
-function validate_aficion(array){
+function validate_lvl(texto){
     var i;
     var ok=0;
-    for(i=0; i<array.length;i++){
-        if(array[i].checked){
+    for(i=0; i<texto.length;i++){
+        if(texto[i].checked){
             ok=1
         }
     }
@@ -109,100 +68,142 @@ function validate_aficion(array){
     }
 }
 
+function validate_fini(texto){
+    if (texto.length > 0){
+        return true;
+    }
+    return false;
+}
+
+function validate_ffin(texto){
+    if(texto.length > 0){
+        return true;
+    }
+    return false;
+}
+
+function validate_price(texto){
+    if (texto.length > 0){
+        var reg=/^[0-9]{1,4}$/;
+        return reg.test(texto);
+    }
+    return false;
+}
+
+function validate_hours(texto){
+    if(texto.length > 0){
+        var reg=/^[0-9]{1,4}$/;
+        return reg.test(texto);
+    }
+    return false
+}
+
+// function validate_idioma(array){
+//     var check=false;
+//     for ( var i = 0, l = array.options.length, o; i < l; i++ ){
+//         o = array.options[i];
+//         if ( o.selected ){
+//             check= true;
+//         }
+//     }
+//     return check;
+// }
+
+// function validate_aficion(array){
+//     var i;
+//     var ok=0;
+//     for(i=0; i<array.length;i++){
+//         if(array[i].checked){
+//             ok=1
+//         }
+//     }
+ 
+//     if(ok==1){
+//         return true;
+//     }
+//     if(ok==0){
+//         return false;
+//     }
+// }
+
 function validate(){
     // console.log('hola validate js');
     // return false;
 
     var check=true;
     
-    var v_usuario=document.getElementById('usuario').value;
-    // console.log(v_usuario);
+    var v_name=document.getElementById('name').value;
+    // console.log(v_name);
     // return false;
-    var v_password=document.getElementById('pass').value;
-    var v_nombre=document.getElementById('nombre').value;
-    var v_DNI=document.getElementById('DNI').value;
-    var v_sexo=document.getElementsByName('sexo');
-    var v_fecha_nacimiento=document.getElementById('fecha').value;
-    var v_edad=document.getElementById('edad').value;
-    var v_idioma=document.getElementById('idioma[]');
-    var v_observaciones=document.getElementById('observaciones').value;
-    var v_aficion=document.getElementsByName('aficion[]');
+    var v_desc=document.getElementById('desc').value;
+    var v_category=document.getElementById('category').value;
+    var v_lvl=document.getElementById('lvl').value;
+    var v_fini=document.getElementsByName('fini').value;
+    var v_ffin=document.getElementById('ffin').value;
+    var v_price=document.getElementById('price').value;
+    var v_hours=document.getElementById('hours').value;
     
-    var r_usuario=validate_usuario(v_usuario);
-    // console.log(r_usuario);
+    var r_name=validate_name(v_name);
+    // console.log(r_name);
     // return false;
-    var r_password=validate_password(v_password);
-    var r_nombre=validate_nombre(v_nombre);
-    //var r_DNI=validate_DNI(v_DNI);
-    var r_DNI=true;
-    var r_sexo=validate_sexo(v_sexo);
-    var r_fecha_nacimiento=validate_fecha(v_fecha_nacimiento);
-    var r_edad=validate_edad(v_edad);
-    var r_idioma=validate_idioma(v_idioma);
-    var r_observaciones=validate_observaciones(v_observaciones);
-    var r_aficion=validate_aficion(v_aficion);
+    var r_desc=validate_desc(v_desc);
+    var r_category=validate_category(v_category);
+    //var r_category=validate_category(v_cateogory);
+    var r_lvl=validate_category(v_lvl);
+    var r_fini=validate_fini(v_fini);
+    var r_ffin=validate_ffin(v_ffin);
+    var r_price=validate_price(v_price);
+    var r_hours=validate_hours(v_hours);
     
-    if(!r_usuario){
-        document.getElementById('error_usuario').innerHTML = " * El usuario introducido no es valido";
-        // console.log(r_usuario);
+    if(!r_name){
+        document.getElementById('error_name').innerHTML = " * El nombre introducido no es valido";
+        // console.log(name);
         // return false;
         check=false;
     }else{
-        document.getElementById('error_usuario').innerHTML = "";
+        document.getElementById('error_name').innerHTML = "";
     }
-    if(!r_password){
-        document.getElementById('error_pass').innerHTML = " * La contraseña introducida no es valida";
+    if(!r_desc){
+        document.getElementById('error_desc').innerHTML = " * Introduce una descripción válida";
         check=false;
     }else{
-        document.getElementById('error_pass').innerHTML = "";
+        document.getElementById('error_desc').innerHTML = "";
     }
-    if(!r_nombre){
-        document.getElementById('error_nombre').innerHTML = " * El nombre introducido no es valido";
+    if(!r_category){
+        document.getElementById('error_category').innerHTML = " * Selecciona una categoria";
         check=false;
     }else{
-        document.getElementById('error_nombre').innerHTML = "";
+        document.getElementById('error_category').innerHTML = "";
     }
-    if(!r_DNI){
-        document.getElementById('error_DNI').innerHTML = " * El DNI introducido no es valido";
+    if(!r_lvl){
+        document.getElementById('error_lvl').innerHTML = " * Selecciona un nivel";
         check=false;
     }else{
-        document.getElementById('error_DNI').innerHTML = "";
+        document.getElementById('error_lvl').innerHTML = "";
     }
-    if(!r_sexo){
-        document.getElementById('error_sexo').innerHTML = " * No has seleccionado ningun genero";
+    if(!r_fini){
+        document.getElementById('error_fini').innerHTML = " * Introduce una fecha váilda";
         check=false;
     }else{
-        document.getElementById('error_sexo').innerHTML = "";
+        document.getElementById('error_fini').innerHTML = "";
     }
-    if(!r_fecha_nacimiento){
-        document.getElementById('error_fecha_nacimiento').innerHTML = " * No has introducido ninguna fecha";
+    if(!r_ffin){
+        document.getElementById('error_ffin').innerHTML = " * Introduce una fecha válida";
         check=false;
     }else{
-        document.getElementById('error_fecha_nacimiento').innerHTML = "";
+        document.getElementById('error_ffin').innerHTML = "";
     }
-    if(!r_edad){
-        document.getElementById('error_edad').innerHTML = " * La edad introducida no es valida";
+    if(!r_price){
+        document.getElementById('error_price').innerHTML = " * Introduce un precio válido";
         check=false;
     }else{
-        document.getElementById('error_edad').innerHTML = "";
+        document.getElementById('error_price').innerHTML = "";
     }
-    if(!r_idioma){
-        document.getElementById('error_idioma').innerHTML = " * No has seleccionado ningun idioma";
+    if(!r_hours){
+        document.getElementById('error_hours').innerHTML = " * Introduce un número de horas";
         check=false;
     }else{
-        document.getElementById('error_idioma').innerHTML = "";
-    }
-    if(!r_observaciones){
-        document.getElementById('error_observaciones').innerHTML = " * El texto introducido no es valido";
-        check=false;
-    }else{
-        document.getElementById('error_observaciones').innerHTML = "";
-    }
-    if(!r_aficion){
-        document.getElementById('error_aficion').innerHTML = " * No has seleccionado ninguna aficion";
-        check=false;
-    }else{
-        document.getElementById('error_aficion').innerHTML = "";
+        document.getElementById('error_hours').innerHTML = "";
     }
     return check;
 }

@@ -14,15 +14,15 @@
         	$ffin=$datos['ffin'];
         	$price=$datos['price'];
 			$hours=$datos['hours'];
-        	foreach ($datos['idioma'] as $indice) {
-        	    $language=$language."$indice:";
-        	}
-        	$comment=$datos['observaciones'];
+        	// foreach ($datos['idioma'] as $indice) {
+        	//     $language=$language."$indice:";
+        	// }
+        	// $comment=$datos['observaciones'];
         	// foreach ($datos['aficion'] as $indice) {
         	//     $hobby=$hobby."$indice:";
         	// }
-        	$sql = "INSERT INTO course (id, name, description, category, lvl, fini, ffin, price, hours, language, comment, hobby)"
-        		. "VALUES ('$id', '$name', '$description', '$category', '$lvl', '$fini', '$ffin', '$price', hours, '$language', '$comment', '$hobby')";
+        	$sql = "INSERT INTO course (id, name, description, category, lvl, fini, ffin, price, hours)"
+        		. "VALUES ('$id', '$name', '$description', '$category', '$lvl', '$fini', '$ffin', '$price', '$hours')";
             
 			// die('<script>console.log('.json_encode( $sql ) .');</script>');
             $conexion = connect::con();
