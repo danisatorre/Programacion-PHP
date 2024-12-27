@@ -14,7 +14,7 @@ function validate_name(texto){
 //     return false;
 // }
 
-function validate_desc(texto){
+function validate_description(texto){
     if (texto.length > 0){
         return true;
     }
@@ -135,10 +135,10 @@ function validate(){
     var v_name=document.getElementById('name').value;
     // console.log(v_name);
     // return false;
-    var v_desc=document.getElementById('desc').value;
-    var v_category=document.getElementById('category').value;
-    var v_lvl=document.getElementById('lvl').value;
-    var v_fini=document.getElementsByName('fini').value;
+    var v_description=document.getElementById('description').value;
+    var v_category=document.getElementsByName('category');
+    var v_lvl=document.getElementsByName('lvl');
+    var v_fini=document.getElementById('fini').value;
     var v_ffin=document.getElementById('ffin').value;
     var v_price=document.getElementById('price').value;
     var v_hours=document.getElementById('hours').value;
@@ -146,10 +146,9 @@ function validate(){
     var r_name=validate_name(v_name);
     // console.log(r_name);
     // return false;
-    var r_desc=validate_desc(v_desc);
+    var r_description=validate_description(v_description);
     var r_category=validate_category(v_category);
-    //var r_category=validate_category(v_cateogory);
-    var r_lvl=validate_category(v_lvl);
+    var r_lvl=validate_lvl(v_lvl);
     var r_fini=validate_fini(v_fini);
     var r_ffin=validate_ffin(v_ffin);
     var r_price=validate_price(v_price);
@@ -163,11 +162,11 @@ function validate(){
     }else{
         document.getElementById('error_name').innerHTML = "";
     }
-    if(!r_desc){
-        document.getElementById('error_desc').innerHTML = " * Introduce una descripción válida";
+    if(!r_description){
+        document.getElementById('error_description').innerHTML = " * Introduce una descripción válida";
         check=false;
     }else{
-        document.getElementById('error_desc').innerHTML = "";
+        document.getElementById('error_desciption').innerHTML = "";
     }
     if(!r_category){
         document.getElementById('error_category').innerHTML = " * Selecciona una categoria";

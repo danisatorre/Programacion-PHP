@@ -42,7 +42,7 @@
                 // die('<script>console.log('.json_encode( $_POST ) .');</script>');
 
                 $check=validate();
-                //die('<script>console.log('.json_encode( $check ) .');</script>');
+                // die('<script>console.log('.json_encode( $check ) .');</script>');
 
                 if ($check){
                     // die('<script>console.log('.json_encode( $_POST ) .');</script>');
@@ -66,6 +66,8 @@
             			$callback = 'index.php?page=503';
     			        die('<script>window.location.href="'.$callback .'";</script>');
             		}
+                }else{
+                    echo '<script>console.log("Error al validar el formulario");</script>';
                 }
             }
             include("module/user/view/create_user.php");
