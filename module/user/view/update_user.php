@@ -1,263 +1,142 @@
 <div id="contenido">
     <form autocomplete="on" method="post" name="aupdate_user" id="update_user" onsubmit="return validate();" action="index.php?page=controller_user&op=update">
-        <h1>Modificar usuario</h1>
+        <h1>Modificar curso</h1>
         <table border='0'>
             <tr>
-                <td>Usuario: </td>
-                <td><input type="text" id="usuario" name="usuario" placeholder="usuario" value="<?php echo $user['user'];?>" readonly/></td>
+                <td>Nombre: </td>
+                <td><input type="text" id="name" name="name" placeholder="nombre" value="<?php echo $course['name'];?>" readonly/></td>
                 <td><font color="red">
-                    <span id="error_usuario" class="error">
+                    <span id="error_name" class="error">
                         <?php
-                            echo "$error_usuario";
+                            echo "$error_name";
                         ?>
                     </span>
                 </font></font></td>
             </tr>
         
             <tr>
-                <td>Contraseña: </td>
-                <td><input type="password" id="pass" name="pass" placeholder="contraseña" value="<?php echo $user['pass'];?>"/></td>
+                <td>Descripcion: </td>
+                <td><input type="text" id="description" name="description" placeholder="descripcion" value="<?php echo $course['description'];?>"/></td>
                 <td><font color="red">
-                    <span id="error_pass" class="error">
+                    <span id="error_desc" class="error">
                         <?php
-                            echo "$error_pass";
+                            echo "$error_desc";
                         ?>
                     </span>
                 </font></font></td>
             </tr>
             
             <tr>
-                <td>Nombre: </td>
-                <td><input type="text" id="nombre" name="nombre" placeholder="nombre" value="<?php echo $user['name'];?>"/></td>
-                <td><font color="red">
-                    <span id="error_nombre" class="error">
-                        <?php
-                            echo "$error_nombre";
-                        ?>
-                    </span>
-                </font></font></td>
-            </tr>
-            
-            <tr>
-                <td>DNI: </td>
-                <td><input type="text" id= "DNI" name="DNI" placeholder="DNI" value="<?php echo $user['dni'];?>"/></td>
-                <td><font color="red">
-                    <span id="error_DNI" class="error">
-                        <?php
-                            echo "$error_DNI";
-                        ?>
-                    </span>
-                </font></font></td>
-            </tr>
-            
-            <tr>
-                <td>Sexo: </td>
+                <td>Categoria: </td>
                 <td>
                     <?php
-                        if ($user['sex']==="Hombre"){
+                        if ($course['category']==="Frontend"){
                     ?>
-                        <input type="radio" id="sexo" name="sexo" placeholder="sexo" value="Hombre" checked/>Hombre
-                        <input type="radio" id="sexo" name="sexo" placeholder="sexo" value="Mujer"/>Mujer
+                        <input type="radio" id="category" name="category" placeholder="categoria" value="Frontend" checked/>Frontend
+                        <input type="radio" id="category" name="category" placeholder="categoria" value="Backend"/>Backend
+                        <input type="radio" id="category" name="category" placeholder="categoria" value="FullStack"/>FullStack
                     <?php    
-                        }else{
+                        }else if($course['category']==="Backend"){
                     ?>
-                        <input type="radio" id="sexo" name="sexo" placeholder="sexo" value="Hombre"/>Hombre
-                        <input type="radio" id="sexo" name="sexo" placeholder="sexo" value="Mujer" checked/>Mujer
+                        <input type="radio" id="category" name="category" placeholder="categoria" value="Frontend"/>Frontend
+                        <input type="radio" id="category" name="category" placeholder="categoria" value="Backend" checked/>Backend
+                        <input type="radio" id="category" name="category" placeholder="categoria" value="FullStack"/>FullStack
                     <?php   
+                        }else if($course['category']==="FullStack"){
+                    ?>
+                        <input type="radio" id="category" name="category" placeholder="categoria" value="Frontend"/>Frontend
+                        <input type="radio" id="category" name="category" placeholder="categoria" value="Backend"/>Backend
+                        <input type="radio" id="category" name="category" placeholder="categoria" value="FullStack" checked/>FullStack
+                    <?php    
                         }
                     ?>
                 </td>
                 <td><font color="red">
-                    <span id="error_sexo" class="error">
+                    <span id="error_category" class="error">
                         <?php
-                            echo "$error_sexo";
+                            echo "$error_category";
                         ?>
                     </span>
                 </font></font></td>
             </tr>
             
             <tr>
-                <td>Fecha de nacimiento: </td>
-                <td><input id="fecha" type="text" name="fecha_nacimiento" placeholder="fecha de nacimiento" value="<?php echo $user['birthdate'];?>"/></td>
-                <td><font color="red">
-                    <span id="error_fecha_nacimiento" class="error">
-                        <?php
-                            echo "$error_fecha_nacimiento";
-                        ?>
-                    </span>
-                </font></font></td>
-            </tr>
-            
-            <tr>
-                <td>Edad: </td>
-                <td><input type="text" id="edad" name="edad" placeholder="edad" value="<?php echo $user['age'];?>"/></td>
-                <td><font color="red">
-                    <span id="error_edad" class="error">
-                        <?php
-                            echo "$error_edad";
-                        ?>
-                    </span>
-                </font></font></td>
-                
-            </tr>
-            
-            <tr>
-                <td>Pais: </td>
-                <td><select id="pais" name="pais" placeholder="pais">
-                    <?php
-                        if($user['country']==="España"){
-                    ?>
-                        <option value="España" selected>España</option>
-                        <option value="Portugal">Portugal</option>
-                        <option value="Francia">Francia</option>
-                    <?php
-                        }elseif($user['country']==="Portugal"){
-                    ?>
-                        <option value="España">España</option>
-                        <option value="Portugal" selected>Portugal</option>
-                        <option value="Francia">Francia</option>
-                    <?php
-                        }else{
-                    ?>
-                        <option value="España">España</option>
-                        <option value="Portugal">Portugal</option>
-                        <option value="Francia" selected>Francia</option>
-                    <?php
-                        }
-                    ?>
-                    </select></td>
-                <td><font color="red">
-                    <span id="error_pais" class="error">
-                        <?php
-                            echo "$error_pais";
-                        ?>
-                    </span>
-                </font></font></td>
-            </tr>
-            
-            <tr>
-                <td>Idioma: </td>
-                <?php
-                    $lang=explode(":", $user['language']);
-                ?>
-                <td><select multiple size="3" id="idioma[]" name="idioma[]" placeholder="idioma">
-                    <?php
-                        $busca_array=in_array("Español", $lang);
-                        if($busca_array){
-                    ?>
-                        <option value="Español" selected>Español</option>
-                    <?php
-                        }else{
-                    ?>
-                        <option value="Español">Español</option>
-                    <?php
-                        }
-                    ?>
-                    <?php
-                        $busca_array=in_array("Ingles", $lang);
-                        if($busca_array){
-                    ?>
-                        <option value="Ingles" selected>Ingles</option>
-                    <?php
-                        }else{
-                    ?>
-                        <option value="Ingles">Ingles</option>
-                    <?php
-                        }
-                    ?>
-                    <?php
-                        $busca_array=in_array("Portugues", $lang);
-                        if($busca_array){
-                    ?>
-                        <option value="Portugues" selected>Portugues</option>
-                    <?php
-                        }else{
-                    ?>
-                        <option value="Portugues">Portugues</option>
-                    <?php
-                        }
-                    ?>
-                    <?php
-                        $busca_array=in_array("Frances", $lang);
-                        if($busca_array){
-                    ?>
-                        <option value="Frances" selected>Frances</option>
-                    <?php
-                        }else{
-                    ?>
-                        <option value="Frances">Frances</option>
-                    <?php
-                        }
-                    ?>
-                    </select></td>
-                <td><font color="red">
-                    <span id="error_idioma" class="error">
-                        <?php
-                            echo "$error_idioma";
-                        ?>
-                    </span>
-                </font></font></td>
-            </tr>
-            
-            <tr>
-                <td>Observaciones: </td>
-                <td><textarea cols="30" rows="5" id="observaciones" name="observaciones" placeholder="observaciones"><?php echo $user['comment'];?></textarea></td>
-                <td><font color="red">
-                    <span id="error_observaciones" class="error">
-                        <?php
-                            echo "$error_observaciones";
-                        ?>
-                    </span>
-                </font></font></td>
-            </tr>
-            
-            <tr>
-                <td>Aficiones: </td>
-                <?php
-                    $afi=explode(":", $user['hobby']);
-                ?>
+                <td>Nivel: </td>
                 <td>
                     <?php
-                        $busca_array=in_array("Informatica", $afi);
-                        if($busca_array){
+                        if ($course['lvl']==="Principiante"){
                     ?>
-                        <input type="checkbox" id= "aficion[]" name="aficion[]" value="Informatica" checked/>informatica
-                    <?php
-                        }else{
+                        <input type="radio" id="lvl" name="lvl" placeholder="nivel" value="Principiante" checked/>Principiante
+                        <input type="radio" id="lvl" name="lvl" placeholder="nivel" value="Medio"/>Medio
+                        <input type="radio" id="lvl" name="lvl" placeholder="nivel" value="Avanzado"/>Avanzado
+                    <?php    
+                        }else if($course['lvl']==="Medio"){
                     ?>
-                        <input type="checkbox" id= "aficion[]" name="aficion[]" value="Informatica"/>informatica
-                    <?php
-                        }
+                        <input type="radio" id="lvl" name="lvl" placeholder="nivel" value="Principiante"/>Principiante
+                        <input type="radio" id="lvl" name="lvl" placeholder="nivel" value="Medio" checked/>Medio
+                        <input type="radio" id="lvl" name="lvl" placeholder="nivel" value="Avanzado"/>Avanzado
+                    <?php   
+                        }else if($course['lvl']==="Avanzado"){
                     ?>
-                    <?php
-                        $busca_array=in_array("Alimentacion", $afi);
-                        if($busca_array){
-                    ?>
-                        <input type="checkbox" id= "aficion[]" name="aficion[]" value="Alimentacion" checked/>alimentacion
-                    <?php
-                        }else{
-                    ?>
-                        <input type="checkbox" id= "aficion[]" name="aficion[]" value="Alimentacion"/>alimentacion
-                    <?php
-                        }
-                    ?>
-                    <?php
-                        $busca_array=in_array("Automovil", $afi);
-                        if($busca_array){
-                    ?>
-                        <input type="checkbox" id= "aficion[]" name="aficion[]" value="Automovil" checked/>automovil</td>
-                    <?php
-                        }else{
-                    ?>
-                    <input type="checkbox" id= "aficion[]" name="aficion[]" value="Automovil"/>automovil</td>
-                    <?php
+                        <input type="radio" id="lvl" name="lvl" placeholder="nivel" value="Principiante"/>Principiante
+                        <input type="radio" id="lvl" name="lvl" placeholder="nivel" value="Medio"/>Medio
+                        <input type="radio" id="lvl" name="lvl" placeholder="nivel" value="Avanzado" checked/>Avanzado
+                    <?php    
                         }
                     ?>
                 </td>
                 <td><font color="red">
-                    <span id="error_aficion" class="error">
+                    <span id="error_lvl" class="error">
                         <?php
-                            echo "$error_aficion";
+                            echo "$error_lvl";
+                        ?>
+                    </span>
+                </font></font></td>
+            </tr>
+
+            <tr>
+                <td>Fecha de inicio: </td>
+                <td><input type="text" id="fini" name="fini" placeholder="fecha de inicio" value="<?php echo $course['fini'];?>"/></td>
+                <td><font color="red">
+                    <span id="error_fini" class="error">
+                        <?php
+                            echo "$error_fini";
+                        ?>
+                    </span>
+                </font></font></td>
+            </tr>
+            
+            <tr>
+                <td>Fecha de fin: </td>
+                <td><input type="text" id= "ffin" name="ffin" placeholder="fecha de fin" value="<?php echo $course['ffin'];?>"/></td>
+                <td><font color="red">
+                    <span id="error_ffin" class="error">
+                        <?php
+                            echo "$error_ffin";
+                        ?>
+                    </span>
+                </font></font></td>
+            </tr>
+            
+            <tr>
+                <td>Precio: </td>
+                <td><input type="text" id= "price" name="price" placeholder="precio" value="<?php echo $course['price'];?>"/></td>
+                <td><font color="red">
+                    <span id="error_price" class="error">
+                        <?php
+                            echo "$error_price";
+                        ?>
+                    </span>
+                </font></font></td>
+            </tr>
+            
+            <tr>
+                <td>Horas: </td>
+                <td><input type="text" id= "hours" name="hours" placeholder="hours" value="<?php echo $course['hours'];?>"/></td>
+                <td><font color="red">
+                    <span id="error_hours" class="error">
+                        <?php
+                            echo "$error_hours";
                         ?>
                     </span>
                 </font></font></td>

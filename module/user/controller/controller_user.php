@@ -77,15 +77,15 @@
             // $data = 'hola crtl user update';
             // die('<script>console.log('.json_encode( $data ) .');</script>');
 
-            include("module/user/model/validate.php");
-            $check = true;
+            // include("module/user/model/validate.php");
+            // $check = true;
             
             if (isset($_POST['update'])){
                 // $data = 'hola update post user';
                 // die('<script>console.log('.json_encode( $data ) .');</script>');
                 // die('<script>console.log('.json_encode( $_POST ) .');</script>');
 
-                $check=validate();
+                // $check=validate();
                 //die('<script>console.log('.json_encode( $check ) .');</script>');
                 
                 if ($check){
@@ -101,7 +101,7 @@
                     
 		            if($rdo){
             			echo '<script language="javascript">setTimeout(() => {
-                            toastr.success("Modificado en la base de datos correctamente");
+                            toastr.success("Curso modificado correctamente");
                         }, 1000);</script>';
                         echo '<script language="javascript">setTimeout(() => {
                             window.location.href="index.php?page=controller_user&op=list";
@@ -121,7 +121,7 @@
             try{
                 $daouser = new DAOUser();
             	$rdo = $daouser->select_user($_GET['id']);
-            	$user=get_object_vars($rdo);
+            	$course=get_object_vars($rdo);
             }catch (Exception $e){
                 $callback = 'index.php?page=503';
 			    die('<script>window.location.href="'.$callback .'";</script>');

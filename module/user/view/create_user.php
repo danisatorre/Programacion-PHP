@@ -19,7 +19,7 @@
                 <td>Descripcion: </td>
                 <td><input type="text" id="description" name="description" placeholder="descripcion" value=""/></td>
                 <td><font color="red">
-                    <span id="error_description" class="error">
+                    <span id="error_desc" class="error">
                         <?php
                             echo "$error_desc";
                         ?>
