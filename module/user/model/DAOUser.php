@@ -39,7 +39,7 @@
 			// $data = 'hola DAO select_user';
             // die('<script>console.log('.json_encode( $data ) .');</script>');
 			$sql = "SELECT * FROM course WHERE id='$id'";
-			
+			// die('<script>console.log('.json_encode( $sql ) .');</script>');
 			$conexion = connect::con();
             $res = mysqli_query($conexion, $sql)->fetch_object();
             connect::close($conexion);
@@ -47,7 +47,7 @@
 		}
 		
 		function update_user($datos){
-			//die('<script>console.log('.json_encode( $datos ) .');</script>');
+			// die('<script>console.log('.json_encode( $datos ) .');</script>');
 			$id=$datos['id'];
         	$name=$datos['name'];
         	$description=$datos['description'];
@@ -57,17 +57,10 @@
         	$ffin=$datos['ffin'];
         	$price=$datos['price'];
 			$hours=$datos['hours'];
-        	// foreach ($datos['idioma'] as $indice) {
-        	//     $language=$language."$indice:";
-        	// }
-        	// $comment=$datos['observaciones'];
-        	// foreach ($datos['aficion'] as $indice) {
-        	//     $hobby=$hobby."$indice:";
-        	// }
         	
-        	$sql = " UPDATE course SET id='$id', name='$name', description='$description', category='$category', lvl='$lvl', fini='$fini', ffin='$ffin', price='$price', hours='$hours',"
-        		. "WHERE course='$id'";
-            
+        	$sql = " UPDATE course SET name='$name', description='$description', category='$category', lvl='$lvl', fini='$fini', ffin='$ffin', price='$price', hours='$hours' "
+        		. "WHERE id='$id';";
+			// die('<script>console.log('.json_encode( $sql ) .');</script>');
             $conexion = connect::con();
             $res = mysqli_query($conexion, $sql);
             connect::close($conexion);

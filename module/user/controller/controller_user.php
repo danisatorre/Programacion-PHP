@@ -88,18 +88,19 @@
                 // $check=validate();
                 //die('<script>console.log('.json_encode( $check ) .');</script>');
                 
-                if ($check){
+                // if ($check){
                     //die('<script>console.log('.json_encode( $_POST ) .');</script>');
                     try{
                         $daouser = new DAOUser();
     		            $rdo = $daouser->update_user($_POST);
-                        //die('<script>console.log('.json_encode( $rdo ) .');</script>');
+                        // die('<script>console.log('.json_encode( $rdo ) .');</script>');
                     }catch (Exception $e){
                         $callback = 'index.php?page=503';
         			    die('<script>window.location.href="'.$callback .'";</script>');
                     }
                     
 		            if($rdo){
+                        // die('<script>console.log('.json_encode( $rdo ) .');</script>');
             			echo '<script language="javascript">setTimeout(() => {
                             toastr.success("Curso modificado correctamente");
                         }, 1000);</script>';
@@ -110,18 +111,20 @@
             			$callback = 'index.php?page=503';
     			        die('<script>window.location.href="'.$callback .'";</script>');
             		}
-                }else{
-                    echo '<script language="javascript">setTimeout(() => {
-                        window.location.href="index.php?page=controller_user&op=list";
-                    }, 2000);</script>';
-                }
+                // }else{
+                //     echo '<script language="javascript">setTimeout(() => {
+                //         window.location.href="index.php?page=controller_user&op=list";
+                //     }, 2000);</script>';
+                // }
             }
             
             // die('<script>console.log('.json_encode( $_GET['id'] ) .');</script>');
             try{
                 $daouser = new DAOUser();
             	$rdo = $daouser->select_user($_GET['id']);
+                // die('<script>console.log('.json_encode( $rdo ) .');</script>');
             	$course=get_object_vars($rdo);
+                // die('<script>console.log('.json_encode( $course ) .');</script>');
             }catch (Exception $e){
                 $callback = 'index.php?page=503';
 			    die('<script>window.location.href="'.$callback .'";</script>');

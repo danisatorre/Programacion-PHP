@@ -2,6 +2,12 @@
     <form autocomplete="on" method="post" name="aupdate_user" id="update_user" onsubmit="return validate();" action="index.php?page=controller_user&op=update">
         <h1>Modificar curso</h1>
         <table border='0'>
+
+            <tr>
+                <td>ID: </td>
+                <td><input type="text" id="id" name="id" placeholder="id" value="<?php echo $course['id'];?>" readonly/></td>
+            </tr>
+
             <tr>
                 <td>Nombre: </td>
                 <td><input type="text" id="name" name="name" placeholder="nombre" value="<?php echo $course['name'];?>" readonly/></td>
@@ -18,9 +24,9 @@
                 <td>Descripcion: </td>
                 <td><input type="text" id="description" name="description" placeholder="descripcion" value="<?php echo $course['description'];?>"/></td>
                 <td><font color="red">
-                    <span id="error_desc" class="error">
+                    <span id="error_description" class="error">
                         <?php
-                            echo "$error_desc";
+                            echo "$error_description";
                         ?>
                     </span>
                 </font></font></td>

@@ -166,7 +166,7 @@ function validate(){
         document.getElementById('error_description').innerHTML = " * Introduce una descripción válida";
         check=false;
     }else{
-        document.getElementById('error_desciption').innerHTML = "";
+        document.getElementById('error_description').innerHTML = "";
     }
     if(!r_category){
         document.getElementById('error_category').innerHTML = " * Selecciona una categoria";
