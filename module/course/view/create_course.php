@@ -1,6 +1,6 @@
 <div id="contenido">
     <form autocomplete="on" method="post" name="add_course" id="add_course" 
-    onsubmit="return validate();" action="index.php?page=controller_user&op=create" > 
+    onsubmit="return validate();" action="index.php?page=controller_course&op=create" > 
         <h1>Curso nuevo</h1>
         <table border='0'>
             <tr>
@@ -108,7 +108,7 @@
             </tr>
             <tr>
                 <td><input type="submit" name="create" id="create"/></td>
-                <td align="right"><a href="index.php?page=controller_user&op=list">Volver</a></td>
+                <td align="right"><a href="index.php?page=controller_course&op=list">Volver</a></td>
             </tr>
         </table>
     </form>

@@ -1,8 +1,8 @@
 <?php
     include("model/connect.php");
     
-	class DAOUser{
-		function insert_user($datos){
+	class DAOcourse{
+		function insert_course($datos){
 			// die('<script>console.log('.json_encode( $datos ) .');</script>');
 
         	$name=$datos['name'];
@@ -24,8 +24,8 @@
 			return $res;
 		}
 		
-		function select_all_user(){
-			// $data = 'hola DAO select_all_user';
+		function select_all_course(){
+			// $data = 'hola DAO select_all_course';
             // die('<script>console.log('.json_encode( $data ) .');</script>');
 			$sql = "SELECT * FROM course ORDER BY id ASC";
 			
@@ -35,8 +35,8 @@
             return $res;
 		}
 		
-		function select_user($id){
-			// $data = 'hola DAO select_user';
+		function select_course($id){
+			// $data = 'hola DAO select_course';
             // die('<script>console.log('.json_encode( $data ) .');</script>');
 			$sql = "SELECT * FROM course WHERE id='$id'";
 			// die('<script>console.log('.json_encode( $sql ) .');</script>');
@@ -46,7 +46,7 @@
             return $res;
 		}
 		
-		function update_user($datos){
+		function update_course($datos){
 			// die('<script>console.log('.json_encode( $datos ) .');</script>');
 			$id=$datos['id'];
         	$name=$datos['name'];
@@ -67,7 +67,7 @@
 			return $res;
 		}
 		
-		function delete_user($id){
+		function delete_course($id){
 			$sql = "DELETE FROM course WHERE id='$id'";
 			
 			$conexion = connect::con();

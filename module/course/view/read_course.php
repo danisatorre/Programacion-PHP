@@ -85,5 +85,5 @@
         </tr>
     </table>
     </p>
-    <p><a href="index.php?page=controller_user&op=list">Volver</a></p>
+    <p><a href="index.php?page=controller_course&op=list">Volver</a></p>
 </div>

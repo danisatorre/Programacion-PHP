@@ -3,8 +3,8 @@
 		case "homepage";
 			include("module/inicio/view/inicio.php");
 			break;
-		case "controller_user";
-			include("module/user/controller/".$_GET['page'].".php");
+		case "controller_course";
+			include("module/course/controller/".$_GET['page'].".php");
 			break;
 		case "services";
 			include("module/services/".$_GET['page'].".php");
