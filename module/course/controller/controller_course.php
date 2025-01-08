@@ -4,7 +4,7 @@
 
     include ("module/course/model/DAOcourse.php");
     //session_start();
-    
+
     switch($_GET['op']){
         case 'list';
             //$data = 'hola crtl courses list';
@@ -145,7 +145,9 @@
 
             try{
                 $daocourse = new DAOcourse();
+                // die('<script>console.log('.json_encode( $daocourse ) .');</script>');
             	$rdo = $daocourse->select_course($_GET['id']);
+                // die('<script>console.log('.json_encode( $rdo ) .');</script>');
             	$id=get_object_vars($rdo);
                 //die('<script>console.log('.json_encode( $id ) .');</script>');
             }catch (Exception $e){
@@ -164,6 +166,7 @@
             // $data = 'hola crtl course delete';
             // die('<script>console.log('.json_encode( $data ) .');</script>');
             // die('<script>console.log('.json_encode( $_GET['id'] ) .');</script>');
+            // die('<script>console.log('.json_encode( $_GET['name'] ) .');</script>');
 
             if (isset($_POST['delete'])){
                 // die('<script>console.log('.json_encode( $_GET['id'] ) .');</script>');

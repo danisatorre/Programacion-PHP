@@ -68,6 +68,7 @@
 		}
 		
 		function delete_course($id){
+			// die('<script>console.log('.json_encode( $_GET['id'] ) .');</script>');
 			$sql = "DELETE FROM course WHERE id='$id'";
 			
 			$conexion = connect::con();
