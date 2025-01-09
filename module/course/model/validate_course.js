@@ -98,33 +98,29 @@ function validate_hours(texto){
     return false
 }
 
-// function validate_idioma(array){
-//     var check=false;
-//     for ( var i = 0, l = array.options.length, o; i < l; i++ ){
-//         o = array.options[i];
-//         if ( o.selected ){
-//             check= true;
-//         }
-//     }
-//     return check;
-// }
+function validate_idioma(texto){
+    if (texto.length > 0){
+        return true;
+    }
+    return false;
+}
 
-// function validate_aficion(array){
-//     var i;
-//     var ok=0;
-//     for(i=0; i<array.length;i++){
-//         if(array[i].checked){
-//             ok=1
-//         }
-//     }
+function validate_state(array){
+    var i;
+    var ok=0;
+    for(i=0; i<array.length;i++){
+        if(array[i].checked){
+            ok=1
+        }
+    }
  
-//     if(ok==1){
-//         return true;
-//     }
-//     if(ok==0){
-//         return false;
-//     }
-// }
+    if(ok==1){
+        return true;
+    }
+    if(ok==0){
+        return false;
+    }
+}
 
 function validate(){
     // console.log('hola validate js');
@@ -140,6 +136,8 @@ function validate(){
     var v_lvl=document.getElementsByName('lvl');
     var v_fini=document.getElementById('fini').value;
     var v_ffin=document.getElementById('ffin').value;
+    var v_idioma=document.getElementById('idioma').value;
+    var v_state=document.getElementByName('state[]').value;
     var v_price=document.getElementById('price').value;
     var v_hours=document.getElementById('hours').value;
     
@@ -151,6 +149,8 @@ function validate(){
     var r_lvl=validate_lvl(v_lvl);
     var r_fini=validate_fini(v_fini);
     var r_ffin=validate_ffin(v_ffin);
+    var r_idioma=validate_idioma(v_idioma);
+    var r_state=validate_state(v_state);
     var r_price=validate_price(v_price);
     var r_hours=validate_hours(v_hours);
     
@@ -191,6 +191,18 @@ function validate(){
         check=false;
     }else{
         document.getElementById('error_ffin').innerHTML = "";
+    }
+    if(!r_idioma){
+        document.getElementById('error_idioma').innerHTML = " * Selecciona un idioma para el curso";
+        check=false;
+    }else{
+        document.getElementById('error_idioma').innerHTML = "";
+    }
+    if(!r_state){
+        document.getElementById('error_state').innerHTML = " * No has seleccionado ningun estado";
+        check=false;
+    }else{
+        document.getElementById('error_state').innerHTML = "";
     }
     if(!r_price){
         document.getElementById('error_price').innerHTML = " * Introduce un precio válido";

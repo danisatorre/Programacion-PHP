@@ -84,6 +84,40 @@
             </tr>
             
             <tr>
+                <td>Idioma: </td>
+                <td><select id="idioma" name="idioma" placeholder="idioma">
+                    <option value="Inglés">Inglés</option>
+                    <option value="Español">Español</option>
+                    <option value="Portugues">Portugues</option>
+                    <option value="Frances">Frances</option>
+                    <option value="Italiano">Italiano</option>
+                    <option value="Aleman">Aleman</option>
+                    </select></td>
+                <td><font color="red">
+                    <span id="error_idioma" class="error">
+                        <?php
+                            echo "$error_idioma";
+                        ?>
+                    </span>
+                </font></font></td>
+            </tr>
+
+            <tr>
+                <td>Estado: </td>
+                <td>
+                    <input type="checkbox" id= "state[]" name="state[]" placeholder= "estado" value="Online"/>Online
+                    <input type="checkbox" id= "state[]" name="state[]" placeholder= "estado" value="Presencial"/>Presencial
+                </td>
+                <td><font color="red">
+                    <span id="error_state" class="error">
+                        <?php
+                            echo "$error_state";
+                        ?>
+                    </span>
+                </font></font></td>
+            </tr>
+
+            <tr>
                 <td>Precio: </td>
                 <td><input type="text" id="price" name="price" placeholder="precio" value=""/></td>
                 <td><font color="red">

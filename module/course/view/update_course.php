@@ -125,6 +125,116 @@
             </tr>
             
             <tr>
+                <td>Idioma: </td>
+                <td><select id="idioma" name="idioma" placeholder="idioma">
+                    <?php
+                        if($course['idioma']==="Inglés"){
+                    ?>
+                        <option value="Inglés" selected>Inglés</option>
+                        <option value="Español">Español</option>
+                        <option value="Portugues">Portugues</option>
+                        <option value="Frances">Frances</option>
+                        <option value="Italiano">Italiano</option>
+                        <option value="Aleman">Aleman</option>
+                    <?php
+                        }elseif($course['idioma']==="Español"){
+                    ?>
+                        <option value="Inglés">Inglés</option>
+                        <option value="Español" selected>Español</option>
+                        <option value="Portugues">Portugues</option>
+                        <option value="Frances">Frances</option>
+                        <option value="Italiano">Italiano</option>
+                        <option value="Aleman">Aleman</option>
+                    <?php
+                        }elseif($course['idioma']==="Portugues"){
+                    ?>
+                        <option value="Inglés">Inglés</option>
+                        <option value="Español">Español</option>
+                        <option value="Portugues" selected>Portugues</option>
+                        <option value="Frances">Frances</option>
+                        <option value="Italiano">Italiano</option>
+                        <option value="Aleman">Aleman</option>
+                    <?php
+                        }elseif($course['idioma']==="Frances"){
+                    ?>
+                        <option value="Inglés">Inglés</option>
+                        <option value="Español">Español</option>
+                        <option value="Portugues">Portugues</option>
+                        <option value="Frances" selected>Frances</option>
+                        <option value="Italiano">Italiano</option>
+                        <option value="Aleman">Aleman</option>
+                    <?php 
+                        }elseif($course['idioma']==="Italiano"){
+                    ?>
+                        <option value="Inglés">Inglés</option>
+                        <option value="Español">Español</option>
+                        <option value="Portugues">Portugues</option>
+                        <option value="Frances">Frances</option>
+                        <option value="Italiano" selected>Italiano</option>
+                        <option value="Aleman">Aleman</option>
+                    <?php 
+                        }elseif($course['idioma']==="Aleman"){
+                    ?>
+                        <option value="Inglés">Inglés</option>
+                        <option value="Español">Español</option>
+                        <option value="Portugues">Portugues</option>
+                        <option value="Frances">Frances</option>
+                        <option value="Italiano">Italiano</option>
+                        <option value="Aleman" selected>Aleman</option>
+                    <?php 
+                        }
+                    ?>
+                    </select></td>
+                <td><font color="red">
+                    <span id="error_idioma" class="error">
+                        <?php
+                            echo "$error_idioma";
+                        ?>
+                    </span>
+                </font></font></td>
+            </tr>
+
+            <tr>
+                <td>Estado: </td>
+                <?php
+                    $afi=explode(":", $course['state']);
+                ?>
+                <td>
+                    <?php
+                        $busca_array=in_array("Online", $afi);
+                        if($busca_array){
+                    ?>
+                        <input type="checkbox" id= "state[]" name="state[]" value="Online" checked/>Online
+                    <?php
+                        }else{
+                    ?>
+                        <input type="checkbox" id= "state[]" name="state[]" value="Online"/>Online
+                    <?php
+                        }
+                    ?>
+                    <?php
+                        $busca_array=in_array("Presencial", $afi);
+                        if($busca_array){
+                    ?>
+                        <input type="checkbox" id= "state[]" name="state[]" value="Presencial" checked/>Presencial
+                    <?php
+                        }else{
+                    ?>
+                        <input type="checkbox" id= "state[]" name="state[]" value="Presencial"/>Presencial
+                    <?php
+                        }
+                    ?>
+                </td>
+                <td><font color="red">
+                    <span id="error_state" class="error">
+                        <?php
+                            echo "$error_state";
+                        ?>
+                    </span>
+                </font></font></td>
+            </tr>
+
+            <tr>
                 <td>Precio: </td>
                 <td><input type="text" id= "price" name="price" placeholder="precio" value="<?php echo $course['price'];?>"/></td>
                 <td><font color="red">

@@ -67,6 +67,24 @@
         </tr>
         
         <tr>
+            <td>Idioma: </td>
+            <td>
+                <?php
+                    echo $id['idioma'];
+                ?>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Estado: </td>
+            <td>
+                <?php
+                    echo $id['state'];
+                ?>
+            </td>
+        </tr>
+
+        <tr>
             <td>Precio: </td>
             <td>
                 <?php

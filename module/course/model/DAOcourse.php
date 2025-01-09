@@ -11,11 +11,15 @@
         	$lvl=$datos['lvl'];
         	$fini=$datos['fini'];
         	$ffin=$datos['ffin'];
+			$idioma=$datos['idioma'];
+			foreach ($datos['state'] as $indice) {
+        	    $state=$state."$indice:";
+        	}
         	$price=$datos['price'];
 			$hours=$datos['hours'];
 
-        	$sql = "INSERT INTO course (name, description, category, lvl, fini, ffin, price, hours)"
-        		. "VALUES ('$name', '$description', '$category', '$lvl', '$fini', '$ffin', '$price', '$hours')";
+        	$sql = "INSERT INTO course (name, description, category, lvl, fini, ffin, price, hours, idioma, state)"
+        		. "VALUES ('$name', '$description', '$category', '$lvl', '$fini', '$ffin', '$price', '$hours', '$idioma', '$state')";
             
 			// die('<script>console.log('.json_encode( $sql ) .');</script>');
             $conexion = connect::con();
@@ -55,10 +59,14 @@
         	$lvl=$datos['lvl'];
         	$fini=$datos['fini'];
         	$ffin=$datos['ffin'];
+			$idioma=$datos['idioma'];
+			foreach ($datos['state'] as $indice) {
+        	    $state=$state."$indice:";
+        	}
         	$price=$datos['price'];
 			$hours=$datos['hours'];
         	
-        	$sql = " UPDATE course SET name='$name', description='$description', category='$category', lvl='$lvl', fini='$fini', ffin='$ffin', price='$price', hours='$hours' "
+        	$sql = " UPDATE course SET name='$name', description='$description', category='$category', lvl='$lvl', fini='$fini', ffin='$ffin', price='$price', hours='$hours', idioma='$idioma', state='$state' "
         		. "WHERE id='$id';";
 			// die('<script>console.log('.json_encode( $sql ) .');</script>');
             $conexion = connect::con();
