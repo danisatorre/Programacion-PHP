@@ -192,6 +192,25 @@
             
             include("module/course/view/delete_course.php");
             break;
+        case 'sidioma';
+            // $data = 'hola crtl course select idioma';
+            // die('<script>console.log('.json_encode( $data ) .');</script>');
+                try{
+                    $daocourse = new DAOcourse();
+                    // die('<script>console.log('.json_encode( $daocourse ) .');</script>');
+                    $rdo = $daocourse->select_lang($_GET['idioma']);
+                    // die('<script>console.log('.json_encode( $rdo ) .');</script>');
+                    $idioma=get_object_vars($rdo);
+                    // die('<script>console.log('.json_encode( $idioma ) .');</script>');
+                }catch (Exception $e){
+                    $callback = 'index.php?page=503';
+                    die('<script>window.location.href="'.$callback .'";</script>');
+                }
+                if(!$rdo){
+                    $callback = 'index.php?page=503';
+                    die('<script>window.location.href="'.$callback .'";</script>');
+                }
+            break;
         default;
             include("view/inc/error404.php");
             break;

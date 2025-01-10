@@ -50,6 +50,17 @@
             return $res;
 		}
 		
+		function select_lang($idioma) {
+			// $data = 'hola DAO select_lang';
+            // die('<script>console.log('.json_encode( $data ) .');</script>');
+			$sql = "SELECT * FROM course WHERE idioma = '$idioma'";
+			// die('<script>console.log('.json_encode( $sql ) .');</script>');
+			$conexion = connect::con();
+            $res = mysqli_query($conexion, $sql)->fetch_object();
+            connect::close($conexion);
+            return $res;
+		}
+
 		function update_course($datos){
 			// die('<script>console.log('.json_encode( $datos ) .');</script>');
 			$id=$datos['id'];
