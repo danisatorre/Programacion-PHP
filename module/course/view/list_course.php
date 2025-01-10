@@ -20,7 +20,6 @@
                 echo'            </select>';
                 echo'        </td>';
                 echo'    </tr>';
-                echo'<input type="button" id="s_lang" value="Buscar">';
                 echo '</a>';
             ?>
             <script>
@@ -43,7 +42,7 @@
                 <?php
                     if ($rdo->num_rows === 0){
                         echo '<tr>';
-                        echo '<td align="center"  colspan="3">NO HAY NINGUN CURSO</td>';
+                        echo '<td align="center"  colspan="3">NO SE HA ENCONTRADO NINGÚN CURSO</td>';
                         echo '</tr>';
                     }else{
                         foreach ($rdo as $row) {
@@ -64,6 +63,7 @@
                     }
                 ?>
             </table>
+            <button><a href="index.php?page=controller_course&op=list"><b>VOLVER A TODOS LOS CURSOS</b></a></button>
     	</div>
     </div>
 </div>

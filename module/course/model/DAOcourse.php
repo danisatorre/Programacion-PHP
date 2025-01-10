@@ -32,7 +32,7 @@
 			// $data = 'hola DAO select_all_course';
             // die('<script>console.log('.json_encode( $data ) .');</script>');
 			$sql = "SELECT * FROM course ORDER BY id ASC";
-			
+			// die('<script>console.log('.json_encode( $sql ) .');</script>');
 			$conexion = connect::con();
             $res = mysqli_query($conexion, $sql);
 			connect::close($conexion);
@@ -53,10 +53,11 @@
 		function select_lang($idioma) {
 			// $data = 'hola DAO select_lang';
             // die('<script>console.log('.json_encode( $data ) .');</script>');
+			// die('<script>console.log('.json_encode( $idioma ) .');</script>');
 			$sql = "SELECT * FROM course WHERE idioma = '$idioma'";
 			// die('<script>console.log('.json_encode( $sql ) .');</script>');
 			$conexion = connect::con();
-            $res = mysqli_query($conexion, $sql)->fetch_object();
+            $res = mysqli_query($conexion, $sql);
             connect::close($conexion);
             return $res;
 		}

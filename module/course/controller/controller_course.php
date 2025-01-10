@@ -13,6 +13,7 @@
             try{
                 $daocourse = new DAOcourse();
             	$rdo = $daocourse->select_all_course();
+                // die('<script>console.log('.json_encode( $rdo ) .');</script>');
                 //die('<script>console.log('.json_encode( $rdo->num_rows ) .');</script>');
             }catch (Exception $e){
                 $callback = 'index.php?page=503';
@@ -200,7 +201,7 @@
                     // die('<script>console.log('.json_encode( $daocourse ) .');</script>');
                     $rdo = $daocourse->select_lang($_GET['idioma']);
                     // die('<script>console.log('.json_encode( $rdo ) .');</script>');
-                    $idioma=get_object_vars($rdo);
+                    // die('<script>console.log('.json_encode( $rdo->num_rows ) .');</script>');
                     // die('<script>console.log('.json_encode( $idioma ) .');</script>');
                 }catch (Exception $e){
                     $callback = 'index.php?page=503';
@@ -209,6 +210,8 @@
                 if(!$rdo){
                     $callback = 'index.php?page=503';
                     die('<script>window.location.href="'.$callback .'";</script>');
+                }else{
+                    include("module/course/view/list_course.php");
                 }
             break;
         default;
