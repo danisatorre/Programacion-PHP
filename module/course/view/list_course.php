@@ -28,8 +28,8 @@
                 document.getElementById('fidioma').addEventListener('change', function() {
                 var selectLang = sel_lang.value;
                 var href = `index.php?page=controller_course&op=sidioma&idioma=${encodeURIComponent(selectLang)}`;
-                console.log(selectLang);
                 window.location.href = href;
+                // console.log(selectLang);
                 });
             </script>
             <table>
@@ -56,7 +56,7 @@
                     	   	echo '&nbsp;';
                     	   	echo '<a class="Button_green" href="index.php?page=controller_course&op=update&id='.$row['id'].'">Update</a>';
                     	   	echo '&nbsp;';
-                    	   	echo '<a class="Button_red" href="index.php?page=controller_course&op=delete&id='.$row['id'].'">Delete</a>';
+                    	   	echo '<a class="Button_red" href="index.php?page=controller_course&op=delete&id='.$row['id'].'&name='.$row['name'].'">Delete</a>';
                     	   	echo '</td>';
                     	   	echo '</tr>';
                         }

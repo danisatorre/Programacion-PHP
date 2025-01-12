@@ -6,7 +6,7 @@
     <form autocomplete="on" method="post" name="delete_course" id="delete_course" action="index.php?page=controller_course&op=delete&id=<?php echo $_GET['id']; ?>">
         <table border='0'>
             <tr>
-                <td align="center"  colspan="2"><h3>¿Estas seguro de eliminar el curso de <?php echo $_GET['id']; ?> con el id <?php echo $_GET['id']; ?>?</h3></td>
+                <td align="center"  colspan="2"><h3>¿Estas seguro de eliminar el curso de <?php echo $_GET['name']; ?> con el id <?php echo $_GET['id']; ?>?</h3></td>
             </tr>
             <tr>
                 <td align="center"><button type="submit" class="Button_green"name="delete" id="delete">Aceptar</button></td>
