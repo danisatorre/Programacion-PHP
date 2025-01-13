@@ -7,7 +7,7 @@ function validate_name(texto) {
 }
 
 function validate_description(texto) {
-    if (texto.length > 0) {
+    if (texto.length > 10) {
         return true;
     }
     return false;
@@ -123,6 +123,7 @@ function validate() {
     // console.log(r_name);
     // return false;
     var r_description = validate_description(v_description);
+    // console.log(r_description);
     var r_category = validate_category(v_category);
     var r_lvl = validate_lvl(v_lvl);
     var r_fini = validate_fini(v_fini);
