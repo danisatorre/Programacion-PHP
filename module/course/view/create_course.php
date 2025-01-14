@@ -17,7 +17,7 @@
         
             <tr>
                 <td>Descripcion: </td>
-                <td><input type="text" id="description" name="description" placeholder="descripcion" value=""/></td>
+                <td><textarea rows="7" cols="57" id="description" name="description" placeholder="descripción" value=""></textarea></td>
                 <td><font color="red">
                     <span id="error_description" class="error">
                         <?php

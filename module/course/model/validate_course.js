@@ -7,7 +7,7 @@ function validate_name(texto) {
 }
 
 function validate_description(texto) {
-    if (texto.length > 10) {
+    if (texto && texto.length > 10) {
         return true;
     }
     return false;
@@ -48,14 +48,14 @@ function validate_lvl(texto) {
 }
 
 function validate_fini(texto) {
-    if (texto.length > 0) {
+    if (texto && texto.length === 10) {
         return true;
     }
     return false;
 }
 
 function validate_ffin(texto) {
-    if (texto.length > 0) {
+    if (texto && texto.length === 10) {
         return true;
     }
     return false;
@@ -120,18 +120,26 @@ function validate() {
     var v_hours = document.getElementById('hours').value;
 
     var r_name = validate_name(v_name);
-    // console.log(r_name);
+    console.log("Name " + r_name);
     // return false;
     var r_description = validate_description(v_description);
-    // console.log(r_description);
+    console.log("Description " + r_description);
     var r_category = validate_category(v_category);
+    console.log("Category " + r_category);
     var r_lvl = validate_lvl(v_lvl);
+    console.log("Lvl " + r_lvl);
     var r_fini = validate_fini(v_fini);
+    console.log("Fini " + r_fini);
     var r_ffin = validate_ffin(v_ffin);
+    console.log("Ffin " + r_ffin);
     var r_idioma = validate_idioma(v_idioma);
+    console.log("Idioma " + r_idioma);
     var r_state = validate_state(v_state);
+    console.log("State " + r_state);
     var r_price = validate_price(v_price);
+    console.log("Price " + r_price);
     var r_hours = validate_hours(v_hours);
+    console.log("Hours " + r_hours);
 
     if (!r_name) {
         document.getElementById('error_name').innerHTML = " * El nombre introducido no es valido";
@@ -140,70 +148,70 @@ function validate() {
         check = false;
     } else {
         document.getElementById('error_name').innerHTML = "";
-        check = true;
+        // check = true;
     }
     if (!r_description) {
         document.getElementById('error_description').innerHTML = " * Introduce una descripción válida";
         check = false;
     } else {
         document.getElementById('error_description').innerHTML = "";
-        check = true;
+        // check = true;
     }
     if (!r_category) {
         document.getElementById('error_category').innerHTML = " * Selecciona una categoria";
         check = false;
     } else {
         document.getElementById('error_category').innerHTML = "";
-        check = true;
+        // check = true;
     }
     if (!r_lvl) {
         document.getElementById('error_lvl').innerHTML = " * Selecciona un nivel";
         check = false;
     } else {
         document.getElementById('error_lvl').innerHTML = "";
-        check = true;
+        // check = true;
     }
     if (!r_fini) {
         document.getElementById('error_fini').innerHTML = " * Introduce una fecha válida";
         check = false;
     } else {
         document.getElementById('error_fini').innerHTML = "";
-        check = true;
+        // check = true;
     }
     if (!r_ffin) {
         document.getElementById('error_ffin').innerHTML = " * Introduce una fecha válida";
         check = false;
     } else {
         document.getElementById('error_ffin').innerHTML = "";
-        check = true;
+        // check = true;
     }
     if (!r_idioma) {
         document.getElementById('error_idioma').innerHTML = " * Selecciona un idioma para el curso";
         check = false;
     } else {
         document.getElementById('error_idioma').innerHTML = "";
-        check = true;
+        // check = true;
     }
     if (!r_state) {
         document.getElementById('error_state').innerHTML = " * No has seleccionado ningun estado";
         check = false;
     } else {
         document.getElementById('error_state').innerHTML = "";
-        check = true;
+        // check = true;
     }
     if (!r_price) {
         document.getElementById('error_price').innerHTML = " * Introduce un precio válido";
         check = false;
     } else {
         document.getElementById('error_price').innerHTML = "";
-        check = true;
+        // check = true;
     }
     if (!r_hours) {
         document.getElementById('error_hours').innerHTML = " * Introduce un número de horas";
         check = false;
     } else {
         document.getElementById('error_hours').innerHTML = "";
-        check = true;
+        // check = true;
     }
     return check;
 }

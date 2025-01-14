@@ -109,7 +109,7 @@
                 // die('<script>console.log('.json_encode( $data ) .');</script>');
                 // die('<script>console.log('.json_encode( $_POST ) .');</script>');
 
-                $check=validate();
+                // $check=validate();
                 $check=true;
                 // die('<script>console.log('.json_encode( $check ) .');</script>');
                 
@@ -118,10 +118,14 @@
                     // die('<script>console.log('.json_encode( $data ) .');</script>');
                     // die('<script>console.log('.json_encode( $_POST ) .');</script>');
                     try{
+                        // $data = 'hola update valid validate_course.js course';
+                        // die('<script>console.log('.json_encode( $data ) .');</script>');
                         $daocourse = new DAOcourse();
     		            $rdo = $daocourse->update_course($_POST);
                         // die('<script>console.log('.json_encode( $rdo ) .');</script>'); 
-                        die('<script>console.log('.json_encode( $_POST ) .');</script>');
+                        // die('<script>console.log('.json_encode( $_POST ) .');</script>');
+                        // $data = 'hola update valid (final) validate_course.js course';
+                        // die('<script>console.log('.json_encode( $data ) .');</script>');
                     }catch (Exception $e){
                         $data = 'hola update error validate_course.js course';
                         die('<script>console.log('.json_encode( $data ) .');</script>');
@@ -157,7 +161,9 @@
             
             // die('<script>console.log('.json_encode( $_GET['id'] ) .');</script>');
             try{
+                // die('<script>console.log('.json_encode( $_GET['id'] ) .');</script>');
                 $daocourse = new DAOcourse();
+                // die('<script>console.log('.json_encode( $daocourse ) .');</script>');
             	$rdo = $daocourse->select_course($_GET['id']);
                 // die('<script>console.log('.json_encode( $rdo ) .');</script>');
             	$course=get_object_vars($rdo);

@@ -34,8 +34,10 @@
             </script>
             <table>
                 <tr>
-                    <td width=125><b>ID</b></th>
                     <td width=125><b>NOMBRE</b></th>
+                    <td width=150><b>DESCRIPCIÓN</b></th>
+                    <td width=125><b>FECHA INICIO</b></th>
+                    <td width=125><b>FECHA FIN</b></th>
                     <td width=125><b>PRECIO</b></th>
                     <th width=350><b>ACCION</b></th>
                 </tr>
@@ -47,16 +49,18 @@
                     }else{
                         foreach ($rdo as $row) {
                        		echo '<tr>';
-                    	   	echo '<td width=125>'. $row['id'] . '</td>';
                     	   	echo '<td width=125>'. $row['name'] . '</td>';
-                    	   	echo '<td width=125>'. $row['price'] . '</td>';
+                            echo '<td width=150>'. $row['description'] . '</td>';
+                    	   	echo '<td width=125>'. $row['fini'] . '</td>';
+                    	   	echo '<td width=125>'. $row['ffin'] . '</td>';
+                            echo '<td width=125>'. $row['price'] . '</td>';
                     	   	echo '<td width=350>';
                             // die('<script>console.log('.json_encode( $row['id'] ) .');</script>');
                     	   	echo '<a class="Button_blue" href="index.php?page=controller_course&op=read&id='.$row['id'].'">Read</a>';
                     	   	echo '&nbsp;';
                     	   	echo '<a class="Button_green" href="index.php?page=controller_course&op=update&id='.$row['id'].'">Update</a>';
                     	   	echo '&nbsp;';
-                    	   	echo '<a class="Button_red" href="index.php?page=controller_course&op=delete&id='.$row['id'].'&name='.$row['name'].'">Delete</a>';
+                    	   	echo '<a class="Button_red" href="index.php?page=controller_course&op=delete&id='.$row['id'].'&name='.$row['name'].'&category='.$row['category'].'">Delete</a>';
                     	   	echo '</td>';
                     	   	echo '</tr>';
                         }

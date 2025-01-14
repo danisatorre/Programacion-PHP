@@ -4,6 +4,7 @@
 	class DAOcourse{
 		function insert_course($datos){
 			// die('<script>console.log('.json_encode( $datos ) .');</script>');
+			$state="";
 
         	$name=$datos['name'];
         	$description=$datos['description'];
@@ -64,6 +65,8 @@
 
 		function update_course($datos){
 			// die('<script>console.log('.json_encode( $datos ) .');</script>');
+			$state="";
+
 			$id=$datos['id'];
         	$name=$datos['name'];
         	$description=$datos['description'];
