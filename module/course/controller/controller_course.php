@@ -122,13 +122,13 @@
                         // die('<script>console.log('.json_encode( $data ) .');</script>');
                         $daocourse = new DAOcourse();
     		            $rdo = $daocourse->update_course($_POST);
-                        // die('<script>console.log('.json_encode( $rdo ) .');</script>'); 
+                        // die('<script>console.log('.json_encode( $rdo ) .');</script>');
                         // die('<script>console.log('.json_encode( $_POST ) .');</script>');
                         // $data = 'hola update valid (final) validate_course.js course';
                         // die('<script>console.log('.json_encode( $data ) .');</script>');
                     }catch (Exception $e){
-                        $data = 'hola update error validate_course.js course';
-                        die('<script>console.log('.json_encode( $data ) .');</script>');
+                        // $data = 'hola update error validate_course.js course';
+                        // die('<script>console.log('.json_encode( $data ) .');</script>');
                         $callback = 'index.php?page=503';
         			    die('<script>window.location.href="'.$callback .'";</script>');
                     }
@@ -164,8 +164,18 @@
                 // die('<script>console.log('.json_encode( $_GET['id'] ) .');</script>');
                 $daocourse = new DAOcourse();
                 // die('<script>console.log('.json_encode( $daocourse ) .');</script>');
-            	$rdo = $daocourse->select_course($_GET['id']);
-                // die('<script>console.log('.json_encode( $rdo ) .');</script>');
+                if(isset($_GET['id'])){
+                    // $data = 'hola update GET ID course';
+                    // die('<script>console.log('.json_encode( $data ) .');</script>');
+                    $rdo = $daocourse->select_course($_GET['id']);
+                    // die('<script>console.log('.json_encode( $rdo ) .');</script>');
+                }else{
+                    // die('<script>console.log('.json_encode( $_POST['id'] ) .');</script>');
+                    // $data = 'hola update POST ID course';
+                    // die('<script>console.log('.json_encode( $data ) .');</script>');
+                    $rdo = $daocourse->select_course($_POST['id']);
+                    // die('<script>console.log('.json_encode( $rdo ) .');</script>');
+                }
             	$course=get_object_vars($rdo);
                 // die('<script>console.log('.json_encode( $course ) .');</script>');
             }catch (Exception $e){

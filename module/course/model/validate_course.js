@@ -120,26 +120,26 @@ function validate() {
     var v_hours = document.getElementById('hours').value;
 
     var r_name = validate_name(v_name);
-    console.log("Name " + r_name);
+    // console.log("Name " + r_name);
     // return false;
     var r_description = validate_description(v_description);
-    console.log("Description " + r_description);
+    // console.log("Description " + r_description);
     var r_category = validate_category(v_category);
-    console.log("Category " + r_category);
+    // console.log("Category " + r_category);
     var r_lvl = validate_lvl(v_lvl);
-    console.log("Lvl " + r_lvl);
+    // console.log("Lvl " + r_lvl);
     var r_fini = validate_fini(v_fini);
-    console.log("Fini " + r_fini);
+    // console.log("Fini " + r_fini);
     var r_ffin = validate_ffin(v_ffin);
-    console.log("Ffin " + r_ffin);
+    // console.log("Ffin " + r_ffin);
     var r_idioma = validate_idioma(v_idioma);
-    console.log("Idioma " + r_idioma);
+    // console.log("Idioma " + r_idioma);
     var r_state = validate_state(v_state);
-    console.log("State " + r_state);
+    // console.log("State " + r_state);
     var r_price = validate_price(v_price);
-    console.log("Price " + r_price);
+    // console.log("Price " + r_price);
     var r_hours = validate_hours(v_hours);
-    console.log("Hours " + r_hours);
+    // console.log("Hours " + r_hours);
 
     if (!r_name) {
         document.getElementById('error_name').innerHTML = " * El nombre introducido no es valido";
