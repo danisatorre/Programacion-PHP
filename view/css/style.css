@@ -21,6 +21,7 @@ h1{
 	height:80px;
 	background-image:url(../img/header.jpg);
 	background-repeat:no-repeat;
+	background-size:cover;
 	height:120px;
 }
 #menu {

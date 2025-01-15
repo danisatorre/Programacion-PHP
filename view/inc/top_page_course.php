@@ -20,6 +20,7 @@
 	    </script>
 	    <link href="view/css/style.css" rel="stylesheet" type="text/css" />
 	    <script src="module/course/model/validate_course.js"></script>
+		<script src="module/course/model/select_lang.js"></script>
 
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>

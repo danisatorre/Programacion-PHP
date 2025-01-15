@@ -143,7 +143,7 @@ function validate() {
 
     if (!r_name) {
         document.getElementById('error_name').innerHTML = " * El nombre introducido no es valido";
-        // console.log(name);
+        // console.log(r_name);
         // return false;
         check = false;
     } else {

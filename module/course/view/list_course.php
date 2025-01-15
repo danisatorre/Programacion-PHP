@@ -6,32 +6,23 @@
     	<div class="row">
     		<p><a href="index.php?page=controller_course&op=create"><img src="view/img/anadir.png"></a></p>
             <?php
-                echo '<a><b>Filtros:</b>';
-                echo '   <tr>';
-                echo'        <td>Idioma: </td>';
-                echo'        <td><select id="fidioma" name="fidioma" placeholder="idioma">';
-                echo'            <option value=""></option>';
-                echo'            <option value="Inglés">Inglés</option>';
-                echo'            <option value="Español">Español</option>';
-                echo'            <option value="Portugues">Portugues</option>';
-                echo'            <option value="Frances">Frances</option>';
-                echo'            <option value="Italiano">Italiano</option>';
-                echo'            <option value="Aleman">Aleman</option>';
-                echo'            </select>';
-                echo'        </td>';
-                echo'    </tr>';
-                echo '</a>';
+                echo'<form autocomplete="on" method="post" name="filters" id="filters" onsubmit="return selang();">';
             ?>
-            <script>
-                var button_select = document.getElementById('s_lang');
-                var sel_lang=document.getElementById('fidioma');
-                document.getElementById('fidioma').addEventListener('change', function() {
-                var selectLang = sel_lang.value;
-                var href = `index.php?page=controller_course&op=sidioma&idioma=${encodeURIComponent(selectLang)}`;
-                window.location.href = href;
-                // console.log(selectLang);
-                });
-            </script>
+                <a><b>Filtros:</b>
+                   <tr>
+                        <td>Idioma: </td>
+                        <td><select id="fidioma" name="fidioma" placeholder="idioma">
+                            <option value="Inglés">Inglés</option>
+                            <option value="Español">Español</option>
+                            <option value="Portugues">Portugues</option>
+                            <option value="Frances">Frances</option>
+                            <option value="Italiano">Italiano</option>
+                            <option value="Aleman">Aleman</option>
+                            </select>
+                        </td>
+                    </tr>
+                 </a>
+                <input type="submit" name="confirm" id="confirm" value="Buscar..."/>
             <table>
                 <tr>
                     <td width=125><b>NOMBRE</b></th>

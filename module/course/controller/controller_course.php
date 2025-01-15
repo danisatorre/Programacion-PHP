@@ -248,6 +248,8 @@
                 try{
                     $daocourse = new DAOcourse();
                     // die('<script>console.log('.json_encode( $daocourse ) .');</script>');
+                    $lang=$_GET['idioma'];
+                    // die('<script>console.log("Idioma: " + '.json_encode( $lang ) .');</script>');
                     $rdo = $daocourse->select_lang($_GET['idioma']);
                     // die('<script>console.log('.json_encode( $rdo ) .');</script>');
                     // die('<script>console.log('.json_encode( $rdo->num_rows ) .');</script>');
