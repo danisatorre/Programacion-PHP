@@ -4,7 +4,8 @@
     // die('<script>console.log('.json_encode( $id ) .');</script>');
     ?>
     <?php
-    echo'<form autocomplete="on" method="post" name="aupdate_course" id="update_course" onsubmit="return validate();" action="index.php?page=controller_course&op=update&id='.$id.'">'
+    // die('<script>console.log('.json_encode( $id ) .');</script>');
+    echo'<form autocomplete="on" method="post" name="aupdate_course" id="aupdate_course" onsubmit="return validate();" action="index.php?page=controller_course&op=update&id='.$id.'">';
     ?>
         <h1>Modificar curso</h1>
         <table border='0'>

@@ -104,7 +104,7 @@ function validate_state(array) {
 function validate() {
     // console.log('hola validate js');
     // return false;
-    // var check = true;
+    var check = true;
 
     var v_name = document.getElementById('name').value;
     // console.log(v_name);

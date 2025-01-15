@@ -4,7 +4,7 @@
 			$host = '127.0.0.1';  
     		$user = "root";                     
     		$pass = "root";                             
-    		$db = "course";                      
+    		$db = "w3schools";                      
     		$port = 3307;                           
     		$tabla="course";
     		

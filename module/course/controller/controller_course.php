@@ -164,16 +164,13 @@
                 // die('<script>console.log('.json_encode( $_GET['id'] ) .');</script>');
                 $daocourse = new DAOcourse();
                 // die('<script>console.log('.json_encode( $daocourse ) .');</script>');
-                if(isset($_GET['id'])){
-                    // $data = 'hola update GET ID course';
-                    // die('<script>console.log('.json_encode( $data ) .');</script>');
-                    $rdo = $daocourse->select_course($_GET['id']);
-                    // die('<script>console.log('.json_encode( $rdo ) .');</script>');
-                }else{
-                    // die('<script>console.log('.json_encode( $_POST['id'] ) .');</script>');
-                    // $data = 'hola update POST ID course';
-                    // die('<script>console.log('.json_encode( $data ) .');</script>');
-                    $rdo = $daocourse->select_course($_POST['id']);
+                $id=$_GET['id'];
+                // die('<script>console.log('.json_encode( $id ) .');</script>');
+                if(isset($id)){
+                    // $data = 'hola update $ID course';
+                    // die('<script>console.log('.json_encode( $data. ' ' .  $id ) .');</script>');
+                    // die('<script>console.log('.json_encode( $id ) .');</script>');
+                    $rdo = $daocourse->select_course($id);
                     // die('<script>console.log('.json_encode( $rdo ) .');</script>');
                 }
             	$course=get_object_vars($rdo);
