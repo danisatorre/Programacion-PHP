@@ -26,7 +26,7 @@
             <table>
                 <tr>
                     <td width=125><b>NOMBRE</b></th>
-                    <td width=150><b>DESCRIPCIÓN</b></th>
+                    <td width=250><b>DESCRIPCIÓN</b></th>
                     <td width=125><b>FECHA INICIO</b></th>
                     <td width=125><b>FECHA FIN</b></th>
                     <td width=125><b>PRECIO</b></th>
@@ -41,7 +41,7 @@
                         foreach ($rdo as $row) {
                        		echo '<tr>';
                     	   	echo '<td width=125>'. $row['name'] . '</td>';
-                            echo '<td width=150>'. $row['description'] . '</td>';
+                            echo '<td width=250>'. $row['description'] . '</td>';
                     	   	echo '<td width=125>'. $row['fini'] . '</td>';
                     	   	echo '<td width=125>'. $row['ffin'] . '</td>';
                             echo '<td width=125>'. $row['price'] . '</td>';

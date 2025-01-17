@@ -11,8 +11,8 @@
         <table border='0'>
 
             <tr>
-                <td>ID: </td>
-                <td><input type="text" id="id" name="id" placeholder="id" value="<?php echo $course['id'];?>" readonly/></td>
+                <!-- <td>ID: </td> -->
+                <td><input type="hidden" id="id" name="id" placeholder="id" value="<?php echo $course['id'];?>" readonly/></td>
             </tr>
 
             <tr>
