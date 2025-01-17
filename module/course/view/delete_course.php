@@ -9,9 +9,10 @@
             <tr>
                 <td align="center"  colspan="2"><h3>¿Estas seguro de eliminar el curso de <?php echo $_GET['name']; ?> 
                 de categoria <?php echo $_GET['category']; ?>?</h3></td>
+                <input type="hidden" id="id" name="id" placeholder="id" value="<?php echo $_GET['id'];?>"/> 
             </tr>
             <tr>
-                <td align="center"><button type="submit" class="Button_green"name="delete" id="delete">Aceptar</button></td>
+                <td align="center"><button type="button" class="Button_green"name="delete" id="delete" onclick="operations_course('delete')" value="Aceptar">Aceptar</button></td>
                 <td align="center"><a class="Button_red" href="index.php?page=controller_course&op=list">Cancelar</a></td>
             </tr>
         </table>

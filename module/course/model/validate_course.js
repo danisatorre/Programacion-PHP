@@ -213,5 +213,31 @@ function validate() {
         document.getElementById('error_hours').innerHTML = "";
         // check = true;
     }
-    return check;
+    // return check;
+
+    if (check){
+        if (op == 'create'){
+            document.getElementById('add_course').submit();
+            document.getElementById('add_course').action = "index.php?page=controller_car&op=create";
+        }
+        if (op == 'update'){
+            document.getElementById('update_car').submit();
+            document.getElementById('update_car').action = "index.php?page=controller_car&op=update";
+        }
+    }
+}
+
+function operations_course(op){
+    if (op == 'delete'){
+        document.getElementById('delete_course').submit();
+        document.getElementById('delete_course').action = "index.php?page=controller_course&op=delete";
+    }
+    if (op == 'delete_all'){
+        document.getElementById('delete_all_course').submit();
+        document.getElementById('delete_all_course').action = "index.php?page=controller_course&op=delete_all";
+    }
+    if (op == 'dummies'){
+        document.getElementById('dummies_course').submit();
+        document.getElementById('dummies_course').action = "index.php?page=controller_course&op=dummies";
+    }
 }

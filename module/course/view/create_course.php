@@ -1,6 +1,60 @@
+<?php
+$id="";
+$name="";
+$description="";
+$category="";
+$lvl="";
+$fini="";
+$ffin="";
+$idioma="";
+$state="";
+$price="";
+$hours="";
+
+if ($_POST){
+    if ($_POST["id"]) {
+        $id = $_POST["id"];
+    }
+    if ($_POST["name"]) {
+        $name = $_POST["name"];
+    }
+    if ($_POST["description"]) {
+        $description = $_POST["description"];
+    }
+    if ($_POST["category"]) {
+        $category = $_POST["category"];
+    }
+    if ($_POST["lvl"]) {
+        $lvl = $_POST["lvl"];
+    }
+    if ($_POST["fini"]) {
+        $fini = $_POST["fini"];
+    }
+    if ($_POST["ffin"]) {
+        $ffin = $_POST["ffin"];
+    }
+    if ($_POST["price"]) {
+        $price = $_POST["price"];
+    }
+    if ($_POST["hours"]) {
+        $hours = $_POST["hours"];
+    }
+    if ($_POST["idioma"]) {
+        $idioma = $_POST["idioma"];
+    }
+    if ($_POST["price"]) {
+        $price = $_POST["price"];
+    }
+    if ($_POST["state"]) {
+        foreach ($_POST["state"] as $indice) {
+            $state=$state."$indice:";
+        }
+    }
+}
+
+?>
 <div id="contenido">
-    <form autocomplete="on" method="post" name="add_course" id="add_course" 
-    onsubmit="return validate();" action="index.php?page=controller_course&op=create" > 
+    <form autocomplete="on" method="post" name="add_course" id="add_course"> 
         <h1>Curso nuevo</h1>
         <table border='0'>
             <tr>
