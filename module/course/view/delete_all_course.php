@@ -2,8 +2,8 @@
     <form autocomplete="on" method="post" name="delete_all_course" id="delete_all_course">
         <table border='0'>
             <tr>
-                <th width=1500><h3>¿Estás seguro de que quieres eliminar toda la lista de cursos?</h3></th>
-                <input type="hidden" id="id" name="id" placeholder="id" value="<?php echo $course['id'];?>"/>
+                <th width=1500><h3>¿Estás seguro de que quieres eliminar todos los cursos?</h3></th>
+                <input type="hidden" id="id" name="id" placeholder="id" value=""/>
             </tr>
         </table>
         <table border='0'>

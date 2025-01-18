@@ -3,7 +3,7 @@
         <table border='0'>
             <tr>
                 <th width=1200><h3>¿Quieres cargar los datos de los cursos?</h3></td>
-                <input type="hidden" id="id" name="id" placeholder="id" value="dummies_cursos"/>
+                <input type="hidden" id="id" name="id" placeholder="id" value=""/>
             </tr>
         </table>
         <table border='0'>

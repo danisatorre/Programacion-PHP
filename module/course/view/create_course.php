@@ -1,56 +1,56 @@
 <?php
-$id="";
-$name="";
-$description="";
-$category="";
-$lvl="";
-$fini="";
-$ffin="";
-$idioma="";
-$state="";
-$price="";
-$hours="";
+// $id="";
+// $name="";
+// $description="";
+// $category="";
+// $lvl="";
+// $fini="";
+// $ffin="";
+// $idioma="";
+// $state="";
+// $price="";
+// $hours="";
 
-if ($_POST){
-    if ($_POST["id"]) {
-        $id = $_POST["id"];
-    }
-    if ($_POST["name"]) {
-        $name = $_POST["name"];
-    }
-    if ($_POST["description"]) {
-        $description = $_POST["description"];
-    }
-    if ($_POST["category"]) {
-        $category = $_POST["category"];
-    }
-    if ($_POST["lvl"]) {
-        $lvl = $_POST["lvl"];
-    }
-    if ($_POST["fini"]) {
-        $fini = $_POST["fini"];
-    }
-    if ($_POST["ffin"]) {
-        $ffin = $_POST["ffin"];
-    }
-    if ($_POST["price"]) {
-        $price = $_POST["price"];
-    }
-    if ($_POST["hours"]) {
-        $hours = $_POST["hours"];
-    }
-    if ($_POST["idioma"]) {
-        $idioma = $_POST["idioma"];
-    }
-    if ($_POST["price"]) {
-        $price = $_POST["price"];
-    }
-    if ($_POST["state"]) {
-        foreach ($_POST["state"] as $indice) {
-            $state=$state."$indice:";
-        }
-    }
-}
+// if ($_POST){
+//     if ($_POST["id"]) {
+//         $id = $_POST["id"];
+//     }
+//     if ($_POST["name"]) {
+//         $name = $_POST["name"];
+//     }
+//     if ($_POST["description"]) {
+//         $description = $_POST["description"];
+//     }
+//     if ($_POST["category"]) {
+//         $category = $_POST["category"];
+//     }
+//     if ($_POST["lvl"]) {
+//         $lvl = $_POST["lvl"];
+//     }
+//     if ($_POST["fini"]) {
+//         $fini = $_POST["fini"];
+//     }
+//     if ($_POST["ffin"]) {
+//         $ffin = $_POST["ffin"];
+//     }
+//     if ($_POST["price"]) {
+//         $price = $_POST["price"];
+//     }
+//     if ($_POST["hours"]) {
+//         $hours = $_POST["hours"];
+//     }
+//     if ($_POST["idioma"]) {
+//         $idioma = $_POST["idioma"];
+//     }
+//     if ($_POST["price"]) {
+//         $price = $_POST["price"];
+//     }
+//     if ($_POST["state"]) {
+//         foreach ($_POST["state"] as $indice) {
+//             $state=$state."$indice:";
+//         }
+//     }
+// }
 
 ?>
 <div id="contenido">
@@ -195,7 +195,7 @@ if ($_POST){
                 </font></font></td>
             </tr>
             <tr>
-                <td><input type="submit" name="create" id="create"/></td>
+                <td><input type="button" name="create" id="create" onclick="validate('create')" value="Enviar curso"/></td>
                 <td align="right"><a href="index.php?page=controller_course&op=list">Volver</a></td>
             </tr>
         </table>

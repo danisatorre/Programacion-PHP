@@ -8,11 +8,19 @@
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.js"></script>
     	<script type="text/javascript">
         	$(function() {
-        		$('#fecha').datepicker({
+        		$('#fini').datepicker({
         			dateFormat: 'dd/mm/yy', 
         			changeMonth: true, 
         			changeYear: true, 
-        			yearRange: '1900:2016',
+        			yearRange: '2024:2033',
+        			onSelect: function(selectedDate) {
+        			}
+        		});
+				$('#ffin').datepicker({
+        			dateFormat: 'dd/mm/yy', 
+        			changeMonth: true, 
+        			changeYear: true, 
+        			yearRange: '2024:2033',
         			onSelect: function(selectedDate) {
         			}
         		});

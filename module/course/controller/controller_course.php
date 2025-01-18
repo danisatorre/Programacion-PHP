@@ -49,7 +49,7 @@
             
             // $check = true;
             
-            if (isset($_POST['create'])){
+            if ($_POST){
                 // $data = 'hola create post course';
                 // die('<script>console.log('.json_encode( $data ) .');</script>');
                 // die('<script>console.log('.json_encode( $_POST ) .');</script>');
@@ -104,7 +104,7 @@
             // $check = true;
             // die('<script>console.log('.json_encode( $check ) .');</script>');
             
-            if (isset($_POST['update'])){
+            if ($_POST){
                 // $data = 'hola update post course';
                 // die('<script>console.log('.json_encode( $data ) .');</script>');
                 // die('<script>console.log('.json_encode( $_POST ) .');</script>');
@@ -218,7 +218,7 @@
             // die('<script>console.log('.json_encode( $_GET['id'] ) .');</script>');
             // die('<script>console.log('.json_encode( $_GET['name'] ) .');</script>');
 
-            if (isset($_POST['delete'])){
+            if ($_POST){
                 // die('<script>console.log('.json_encode( $_GET['id'] ) .');</script>');
                 try{
                     $daocourse = new DAOcourse();
@@ -240,8 +240,59 @@
         		}
             }
             
-            include("module/course/view/delete_course.php");
+            try{
+                $daocourse = new DAOcourse();
+                $rdo = $daocourse->select_course($_GET['id']);
+                $course=get_object_vars($rdo);
+            }catch (Exception $e){
+                $callback = 'index.php?page=controller_course&op=503';
+                die('<script>window.location.href="'.$callback .'";</script>');
+            }
+                    
+            if(!$rdo){
+                $callback = 'index.php?page=controller_course&op=503';
+                die('<script>window.location.href="'.$callback .'";</script>');
+            }else{
+                include("module/course/view/delete_course.php");
+            }
             break;
+        
+        case 'delete_all';
+            // $data = 'hola crtl course delete all';
+            // die('<script>console.log('.json_encode( $data ) .');</script>');
+            if($_POST){
+                try{
+                    // $data = 'hola crtl course delete all try';
+                    // die('<script>console.log('.json_encode( $data ) .');</script>');
+                    $daocourse = new DAOcourse();
+                    $rdo = $daocourse -> delete_all_course();
+                }catch (Exception $e){
+                    $callback = 'index.php?page=controller_course&op=503';
+                    die('<script>window.location.href="'.$callback .'";</script>');
+                }
+                
+                if($rdo){
+                    // $data = 'hola crtl course delete all rdo';
+                    // die('<script>console.log('.json_encode( $data ) .');</script>');
+                    echo '<script language="javascript">setTimeout(() => {
+                        toastr.success("Cursos eliminados correctamente");
+                    }, 1000);</script>';
+                    echo '<script language="javascript">setTimeout(() => {
+                        window.location.href="index.php?page=controller_course&op=list";
+                    }, 2000);</script>';
+                }else{
+                    echo '<script language="javascript">setTimeout(() => {
+                        toastr.success("Error al eliminar los cursos");
+                    }, 1000);</script>';
+                    echo '<script language="javascript">setTimeout(() => {
+                        window.location.href="index.php?page=503";
+                    }, 2000);</script>';
+                }
+            }else{
+                include("module/course/view/delete_all_course.php");
+            }
+            break;
+
         case 'sidioma';
             // $data = 'hola crtl course select idioma';
             // die('<script>console.log('.json_encode( $data ) .');</script>');
@@ -265,6 +316,32 @@
                     include("module/course/view/list_course.php");
                 }
             break;
+        case 'dummies';
+            // $data = 'hola crtl course dummies';
+            // die('<script>console.log('.json_encode( $data ) .');</script>');
+            if ($_POST){
+                try{
+                    $daocourse = new DAOcourse();
+                    $rdo = $daocourse -> insert_dummies();
+                }catch (Exception $e){
+                    $callback = 'index.php?page=controller_course&op=503';
+                    die('<script>window.location.href="'.$callback .'";</script>');
+                }
+    
+                if($rdo){
+                    echo '<script language="javascript">setTimeout(() => {
+                        toastr.success("Cursos creados correctamente");
+                    }, 1000);</script>';
+                    $callback = 'index.php?page=controller_course&op=list';
+			        die('<script>window.location.href="'.$callback .'";</script>');
+                }else{
+                    $callback = 'index.php?page=controller_course&op=503';
+                    die('<script>window.location.href="'.$callback .'";</script>');
+                }
+            }else{
+                include("module/course/view/dummies_course.php");
+            }
+        break;
         default;
             include("view/inc/error404.php");
             break;

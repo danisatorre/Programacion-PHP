@@ -101,7 +101,7 @@ function validate_state(array) {
     }
 }
 
-function validate() {
+function validate(op) {
     // console.log('hola validate js');
     // return false;
     var check = true;
@@ -218,11 +218,11 @@ function validate() {
     if (check){
         if (op == 'create'){
             document.getElementById('add_course').submit();
-            document.getElementById('add_course').action = "index.php?page=controller_car&op=create";
+            document.getElementById('add_course').action = "index.php?page=controller_course&op=create";
         }
         if (op == 'update'){
             document.getElementById('update_car').submit();
-            document.getElementById('update_car').action = "index.php?page=controller_car&op=update";
+            document.getElementById('update_car').action = "index.php?page=controller_course&op=update";
         }
     }
 }
@@ -233,6 +233,7 @@ function operations_course(op){
         document.getElementById('delete_course').action = "index.php?page=controller_course&op=delete";
     }
     if (op == 'delete_all'){
+        // console.log("validate_course js delete_all");
         document.getElementById('delete_all_course').submit();
         document.getElementById('delete_all_course').action = "index.php?page=controller_course&op=delete_all";
     }

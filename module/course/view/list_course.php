@@ -1,10 +1,25 @@
+<?php 
+// $data = 'hola mejoras branch';
+// die('<script>console.log('.json_encode( $data ) .');</script>');
+?>
 <div id="contenido">
     <div class="container">
     	<div class="row">
     			<h3>LISTA DE CURSOS</h3>
     	</div>
     	<div class="row">
-    		<p><a href="index.php?page=controller_course&op=create"><img src="view/img/anadir.png"></a></p>
+            <table>
+                <tr>
+                    <th width=100><h3 data-tr="Añadir">Añadir Curso</h3></th>
+                    <th width=100><h3 data-tr="Dummies">Dummies</h3></th>
+                    <th width=100><h3 data-tr="Borrar todo">Borrar todo</h3></th>
+                </tr>
+                <tr>
+                    <th><p><a href="index.php?page=controller_course&op=create"><img src="view/img/anadir.png"></a></p></th>
+                    <th><p><a href="index.php?page=controller_course&op=dummies"><img src="view/img/anadir.png"></a></p></th>
+                    <th><p><a href="index.php?page=controller_course&op=delete_all"><img src="view/img/eliminar.png"></a></p></th>
+                </tr>
+            </table>
             <?php
                 echo'<form autocomplete="on" method="post" name="filters" id="filters" onsubmit="return selang();">';
             ?>
