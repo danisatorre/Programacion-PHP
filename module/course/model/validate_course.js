@@ -242,3 +242,60 @@ function operations_course(op){
         document.getElementById('dummies_course').action = "index.php?page=controller_course&op=dummies";
     }
 }
+
+$(document).ready(function () {
+    // console.log('hola ready js');
+    $('.course').click(function () {
+        var id = this.getAttribute('id');
+        // console.log(id);
+        // alert(id);
+    // });
+        $.get("module/course/controller/controller_course.php?op=read_modal&modal=" + id, 
+        function (data, status) {
+            var json = JSON.parse(data);
+            console.log(json);
+            
+            if(json === 'error') {
+                //console.log(json);
+                //pintar 503
+                window.location.href='index.php?page=503';
+            }else{
+                console.log(json.course);
+                $("#name_modal").html(json.name);
+                $("#desc_modal").html(json.desc);
+                $("#category_modal").html(json.category);
+                $("#lvl_modal").html(json.lvl);
+                $("#fini_modal").html(json.fini);
+                $("#ffin_modal").html(json.ffin);
+                $("#lang_modal").html(json.lang);
+                $("#state_modal").html(json.state);
+                $("#price_modal").html(json.price);
+                $("#hours_modal").html(json.hours);
+     
+                $("#details_course").show();
+                $("#modal_course").dialog({
+                    width: 850, //<!-- ------------- ancho de la ventana -->
+                    height: 500, //<!--  ------------- altura de la ventana -->
+                    // show: "scale", //<!-- ----------- animación de la ventana al aparecer -->
+                    // hide: "scale", //<!-- ----------- animación al cerrar la ventana -->
+                    resizable: "false", //<!-- ------ fija o redimensionable si ponemos este valor a "true" -->
+                    //position: "down",<!--  ------ posicion de la ventana en la pantalla (left, top, right...) -->
+                    modal: "true", //<!-- ------------ si esta en true bloquea el contenido de la web mientras la ventana esta activa (muy elegante) -->
+                    buttons: {
+                        Ok: function () {
+                            $(this).dialog("close");
+                        }
+                    },
+                    show: {
+                        effect: "blind",
+                        duration: 1000
+                    },
+                    hide: {
+                        effect: "explode",
+                        duration: 1000
+                    }
+                });
+            }//end-else
+        });
+    });
+});

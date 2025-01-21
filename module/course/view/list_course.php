@@ -61,8 +61,11 @@
                     	   	echo '<td width=125>'. $row['ffin'] . '</td>';
                             echo '<td width=125>'. $row['price'] . '</td>';
                     	   	echo '<td width=350>';
+
+                            print ("<div class='course' id='".$row['id']."'>Read</div>");  // READ ONE
+                            echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
                             // die('<script>console.log('.json_encode( $row['id'] ) .');</script>');
-                    	   	echo '<a class="Button_blue" href="index.php?page=controller_course&op=read&id='.$row['id'].'">Read</a>';
+                    	   	// echo '<a class="Button_blue" href="index.php?page=controller_course&op=read&id='.$row['id'].'">Read</a>';
                     	   	echo '&nbsp;';
                     	   	echo '<a class="Button_green" href="index.php?page=controller_course&op=update&id='.$row['id'].'">Update</a>';
                     	   	echo '&nbsp;';
@@ -77,3 +80,23 @@
     	</div>
     </div>
 </div>
+
+<!-- modal window -->
+<section id="modal_course">
+    <div id="details_course" hidden>
+        <div id="details">
+            <div id="container">
+                Nombre: <div id="name_modal"></div></br>
+                Descripción: <div id="desc_modal"></div></br>
+                Categoria: <div id="category_modal"></div></br>
+                Nivel: <div id="lvl_modal"></div></br>
+                Fecha de inicio: <div id="fini_modal"></div></br>
+                Fecha de fin: <div id="ffin_modal"></div></br>
+                Idioma: <div id="lang_modal"></div></br>
+                Estado: <div id="state_modal"></div></br>
+                Precio: <div id="price_modal"></div></br>
+                Horas: <div id="hours_modal"></div></br>
+            </div>
+        </div>
+    </div>
+</section>

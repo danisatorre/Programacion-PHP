@@ -2,7 +2,9 @@
     //$data = 'hola crtl courses';
     //die('<script>console.log('.json_encode( $data ) .');</script>');
 
-    include ("module/course/model/DAOcourse.php");
+    // include ("module/course/model/DAOcourse.php");
+    $path = $_SERVER['DOCUMENT_ROOT'] . '/0_intro/8_MVC_CRUD/Programacion-PHP/';
+    include($path . "module/course/model/DAOcourse.php");
     //session_start();
 
     switch($_GET['op']){
@@ -357,7 +359,32 @@
             }else{
                 include("module/course/view/dummies_course.php");
             }
-        break;
+            break;
+
+        case 'read_modal':
+            
+            // echo $_GET['modal'];
+            // exit;
+
+            try{
+                $daocourse = new DAOcourse();
+                $rdo = $daocourse->select_course($_GET['modal']);
+            }catch (Exception $e){
+                echo json_encode("error");
+                exit;
+            }
+
+            if(!$rdo){
+                echo json_encode("error");
+                exit;
+            }else{
+                $course = get_object_vars($rdo);
+                echo json_encode($course);
+                // echo json_encode("error");
+                exit;
+            }
+
+            break;
         default;
             include("view/inc/error404.php");
             break;
