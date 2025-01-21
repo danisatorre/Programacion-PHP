@@ -45,7 +45,7 @@
                     <td width=125><b>FECHA INICIO</b></th>
                     <td width=125><b>FECHA FIN</b></th>
                     <td width=125><b>PRECIO</b></th>
-                    <th width=350><b>ACCION</b></th>
+                    <th width=380><b>ACCION</b></th>
                 </tr>
                 <?php
                     if ($rdo->num_rows === 0){
@@ -60,7 +60,7 @@
                     	   	echo '<td width=125>'. $row['fini'] . '</td>';
                     	   	echo '<td width=125>'. $row['ffin'] . '</td>';
                             echo '<td width=125>'. $row['price'] . '</td>';
-                    	   	echo '<td width=350>';
+                    	   	echo '<td width=380>';
 
                             print ("<div class='course' id='".$row['id']."'>Read</div>");  // READ ONE
                             echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';

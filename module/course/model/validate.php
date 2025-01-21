@@ -28,17 +28,10 @@
     }
 
     function validate_name_update($name){
-        // $data = 'hola validate name  update (inicio) php';
-        // die ('<script>console.log('.json_encode( $data ) .');</script>');
-        $conexion = connect::con();
-        if (!$conexion) {
-            die('<script>console.log("Error al conectar a la base de datos.");</script>');
-        }
         $sql = "SELECT * FROM course WHERE name='$name'";
-        // $data = 'Consulta SQL generada: ' . $sql;
-        // die ('<script>console.log('.json_encode( $data ) .');</script>');
+        
+        $conexion = connect::con();
         $res = mysqli_query($conexion, $sql)->fetch_row();
-        // die ('<script>console.log('.json_encode( $res ) .');</script>');
         connect::close($conexion);
         return $res;
     }
@@ -68,25 +61,19 @@
     }
 
     function validate_update() {
-        // $data = 'hola validate update php';
-        // die('<script>console.log('.json_encode( $data ) .');</script>');
-
         $check = true;
 
         $name = $_POST['name'];
-        // die('<script>console.log('.json_encode( $name ) .');</script>');
-        $name_exists = validate_name_update($name);
-        // die('<script>console.log('.json_encode( $name_exists ) .');</script>');
+        $name = validate_name_update($name);
 
-        if($name_exists !== null){
-            if($name_exists[1] !== $_POST['name']){
+        if($name !== null){
+            if($name[1] !== $_POST['name_old']){
                 echo '<script language="javascript">setTimeout(() => {
-                    toastr.error("El nombre no puede estar repetido");
+                    toastr.error("El nombre introducido esta en úso por otro curso");
                 }, 1000);</script>';
                 $check = false;
             }
-        }else{
-            return $check;   
         }
+        return $check;
     }
 ?>

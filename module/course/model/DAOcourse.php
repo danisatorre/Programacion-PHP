@@ -122,7 +122,7 @@
 			(4, 'IA', 'Curso de IA', 'Backend', 'Principiante', '10/03/2024', '10/04/2024', 150, 40, 'Italiano', 'Online:Presencial:'),
 			(5, 'Python', 'Curso de python para gente con experiencia', 'Backend', 'Avanzado', '20/05/2024', '20/06/2024', 180, 50, 'Aleman', 'Presencial:'),
 			(6, 'Java', 'Curso de java', 'FullStack', 'Medio', '21/02/2024', '10/07/2024', 599, 120, 'Portugues', 'Online:Presencial:'),
-			(7, 'PHP', 'Curso de PHP web', 'Backend', 'Principiante', '10/03/2024', '10/04/2024', 150, 40, 'Frances', 'Online:');
+			(7, 'PHP', 'Curso de PHP web', 'Backend', 'Principiante', '10/03/2024', '10/04/2024', 150, 40, 'Aleman', 'Online:');
 			";
 			// die('<script>console.log('.json_encode( $sql ) .');</script>');
 			$conexion = connect::con();

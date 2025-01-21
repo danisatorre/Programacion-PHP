@@ -65,18 +65,24 @@
                         $daocourse = new DAOcourse();
     		            $rdo = $daocourse->insert_course($_POST);
                         // die('<script>console.log('.json_encode( $rdo ) .');</script>');
+                        $name = $_POST['name'];
+                        // die('<script>console.log('.json_encode( $name ) .');</script>');
                     }catch (Exception $e){
                         $callback = 'index.php?page=503';
         			    die('<script>window.location.href="'.$callback .'";</script>');
                     }
                     
 		            if($rdo){
-                        echo '<script language="javascript">setTimeout(() => {
-                            toastr.success("Curso creado exitosamente");
-                        }, 1000);</script>';
-                        echo '<script language="javascript">setTimeout(() => {
-                            window.location.href="index.php?page=controller_course&op=list";
-                        }, 2000);</script>';
+                        echo '<script>
+                        Swal.fire({
+                            title: "Curso eliminado!",
+                            text: "El curso de ' . $name . ' ha sido creado correctamente",
+                            icon: "success",
+                            willClose: () => {
+                                window.location.href = "index.php?page=controller_course&op=list";
+                            }
+                        });
+                    </script>';
             		}else{
             			$callback = 'index.php?page=503';
     			        die('<script>window.location.href="'.$callback .'";</script>');
@@ -152,15 +158,6 @@
             			$callback = 'index.php?page=503';
     			        die('<script>window.location.href="'.$callback .'";</script>');
             		}
-                }else{
-                    // $data = 'hola update check false course';
-                    // die('<script>console.log('.json_encode( $data ) .');</script>');
-                    echo '<script language="javascript">setTimeout(() => {
-                        toastr.error("El nombre introducido ya esta en uso por otro curso");
-                    }, 1000);</script>';
-                    echo '<script language="javascript">setTimeout(() => {
-                        window.location.href="index.php?page=controller_course&op=list";
-                    }, 2000);</script>';
                 }
             }
             
@@ -365,7 +362,7 @@
             
             // echo $_GET['modal'];
             // exit;
-
+            
             try{
                 $daocourse = new DAOcourse();
                 $rdo = $daocourse->select_course($_GET['modal']);
