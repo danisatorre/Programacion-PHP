@@ -1,12 +1,4 @@
 <?php
-    // function validate_id($id){
-    //     $sql = "SELECT * FROM course WHERE id='$id'";
-
-    //     $conexion = connect::con();
-    //     $res = mysqli_query($conexion, $sql)->fetch_object();
-    //     connect::close($conexion);
-    //     return $res;
-    // }
 
     function validate_name($name){
         // $data = 'hola validate name (inicio) php';
@@ -34,6 +26,22 @@
         // $data = 'hola validate name (final) php';
         // die ('<script>console.log('.json_encode( $data ) .');</script>');
     }
+
+    function validate_name_update($name){
+        // $data = 'hola validate name  update (inicio) php';
+        // die ('<script>console.log('.json_encode( $data ) .');</script>');
+        $conexion = connect::con();
+        if (!$conexion) {
+            die('<script>console.log("Error al conectar a la base de datos.");</script>');
+        }
+        $sql = "SELECT * FROM course WHERE name='$name'";
+        // $data = 'Consulta SQL generada: ' . $sql;
+        // die ('<script>console.log('.json_encode( $data ) .');</script>');
+        $res = mysqli_query($conexion, $sql)->fetch_row();
+        // die ('<script>console.log('.json_encode( $res ) .');</script>');
+        connect::close($conexion);
+        return $res;
+    }
     
     function validate() {
         // $data = 'hola validate php';
@@ -41,19 +49,11 @@
 
         $check = true;
 
-        // $id = $_POST['id'];
         $name = $_POST['name'];
-        // $id = validate_id($id);
         $name_exists = validate_name($name);
         // $data = 'hola name php';
         // die ('<script>console.log('.json_encode( $data ) .');</script>');
 
-        // if($id !== null){
-        //     echo '<script language="javascript">setTimeout(() => {
-        //         toastr.error("El id no puede estar repetido");
-        //     }, 1000);</script>';
-        //     $check = false;
-        // }
 
         if($name_exists > 0){;
             // $data = 'hola name_exists php';
@@ -62,6 +62,29 @@
                 toastr.error("El nombre no puede estar repetido");
             }, 1000);</script>';
             $check = false;
+        }else{
+            return $check;   
+        }
+    }
+
+    function validate_update() {
+        // $data = 'hola validate update php';
+        // die('<script>console.log('.json_encode( $data ) .');</script>');
+
+        $check = true;
+
+        $name = $_POST['name'];
+        // die('<script>console.log('.json_encode( $name ) .');</script>');
+        $name_exists = validate_name_update($name);
+        // die('<script>console.log('.json_encode( $name_exists ) .');</script>');
+
+        if($name_exists !== null){
+            if($name_exists[1] !== $_POST['name']){
+                echo '<script language="javascript">setTimeout(() => {
+                    toastr.error("El nombre no puede estar repetido");
+                }, 1000);</script>';
+                $check = false;
+            }
         }else{
             return $check;   
         }

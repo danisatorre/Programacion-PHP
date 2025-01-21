@@ -84,7 +84,7 @@
             include("module/course/view/create_course.php");
             break;
             
-        case 'update';
+        case 'update';  
             // definir variables para evitar el error de variable no inicializada
             $error_name="";
             $error_description="";
@@ -101,7 +101,7 @@
             // die('<script>console.log('.json_encode( $data ) .');</script>');
 
             include("module/course/model/validate.php");
-            // $check = true;
+            $check = true;
             // die('<script>console.log('.json_encode( $check ) .');</script>');
             
             if ($_POST){
@@ -109,8 +109,8 @@
                 // die('<script>console.log('.json_encode( $data ) .');</script>');
                 // die('<script>console.log('.json_encode( $_POST ) .');</script>');
 
-                // $check=validate();
-                $check=true;
+                $check=validate_update();
+                // $check=true;
                 // die('<script>console.log('.json_encode( $check ) .');</script>');
                 
                 if ($check){
@@ -153,6 +153,9 @@
                 }else{
                     // $data = 'hola update check false course';
                     // die('<script>console.log('.json_encode( $data ) .');</script>');
+                    echo '<script language="javascript">setTimeout(() => {
+                        toastr.error("El nombre introducido ya esta en uso por otro curso");
+                    }, 1000);</script>';
                     echo '<script language="javascript">setTimeout(() => {
                         window.location.href="index.php?page=controller_course&op=list";
                     }, 2000);</script>';
@@ -223,17 +226,23 @@
                 try{
                     $daocourse = new DAOcourse();
                 	$rdo = $daocourse->delete_course($_GET['id']);
+                    $name = $_GET['name'];
+                    // die('<script>console.log('.json_encode( $name ) .');</script>');
                 }catch (Exception $e){
                     $callback = 'index.php?page=503';
     			    die('<script>window.location.href="'.$callback .'";</script>');
                 }
             	if($rdo){
-                    echo '<script language="javascript">setTimeout(() => {
-                        toastr.success("Curso eliminado correctamente");
-                    }, 1000);</script>';
-                    echo '<script language="javascript">setTimeout(() => {
-                        window.location.href="index.php?page=controller_course&op=list";
-                    }, 2000);</script>';
+                    echo '<script>
+                    Swal.fire({
+                        title: "Curso eliminado!",
+                        text: "El curso de ' . $name . ' ha sido eliminado correctamente",
+                        icon: "success",
+                        willClose: () => {
+                            window.location.href = "index.php?page=controller_course&op=list";
+                        }
+                    });
+                    </script>';
         		}else{
         			$callback = 'index.php?page=503';
 			        die('<script>window.location.href="'.$callback .'";</script>');
@@ -274,15 +283,22 @@
                 if($rdo){
                     // $data = 'hola crtl course delete all rdo';
                     // die('<script>console.log('.json_encode( $data ) .');</script>');
-                    echo '<script language="javascript">setTimeout(() => {
-                        toastr.success("Cursos eliminados correctamente");
-                    }, 1000);</script>';
+                    echo '<script>
+                            Swal.fire({
+                                title: "Cursos eliminados!",
+                                text: "Cursos eliminados correctamente",
+                                icon: "success",
+                                willClose: () => {
+                                    window.location.href = "index.php?page=controller_course&op=list";
+                                }
+                            });
+                          </script>';
                     echo '<script language="javascript">setTimeout(() => {
                         window.location.href="index.php?page=controller_course&op=list";
-                    }, 2000);</script>';
+                    }, 2000);</script>';     
                 }else{
                     echo '<script language="javascript">setTimeout(() => {
-                        toastr.success("Error al eliminar los cursos");
+                        toastr.error("Error al eliminar los cursos");
                     }, 1000);</script>';
                     echo '<script language="javascript">setTimeout(() => {
                         window.location.href="index.php?page=503";

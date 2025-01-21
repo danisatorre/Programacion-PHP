@@ -23,7 +23,7 @@
             <?php
                 echo'<form autocomplete="on" method="post" name="filters" id="filters" onsubmit="return selang();">';
             ?>
-                <a><b>Filtros:</b>
+                <a><b id="filter">Filtros:</b>
                    <tr>
                         <td>Idioma: </td>
                         <td><select id="fidioma" name="fidioma" placeholder="idioma">

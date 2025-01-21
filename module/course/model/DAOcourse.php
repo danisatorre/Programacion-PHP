@@ -1,6 +1,8 @@
 <?php
-    include("model/connect.php");
+    // include("model/connect.php");
     
+	
+
 	class DAOcourse{
 		function insert_course($datos){
 			// die('<script>console.log('.json_encode( $datos ) .');</script>');

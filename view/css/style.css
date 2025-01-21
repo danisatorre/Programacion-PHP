@@ -119,3 +119,7 @@ h1{
     align-items: center;
 	flex-direction: column;
 }
+#filter{
+	color:#3c9822;
+	font-size: 30px;
+}
