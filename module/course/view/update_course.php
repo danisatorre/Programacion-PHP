@@ -13,11 +13,13 @@
             <tr>
                 <!-- <td>ID: </td> -->
                 <td><input type="hidden" id="id" name="id" placeholder="id" value="<?php echo $course['id'];?>" readonly/></td>
+                <!-- nombre antiguo -->
+                <input type="hidden" id="old_name" name="old_name" value="<?php echo $course['name'];?>"/>
             </tr>
 
             <tr>
                 <td>Nombre: </td>
-                <td><input type="text" id="name" name="name" placeholder="nombre" value="<?php echo $course['name'];?>" readonly/></td>
+                <td><input type="text" id="name" name="name" placeholder="nombre" value="<?php echo $course['name'];?>"/></td>
                 <td><font color="red">
                     <span id="error_name" class="error">
                         <?php

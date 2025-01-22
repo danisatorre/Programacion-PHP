@@ -1,6 +1,9 @@
 <?php
-    include("model/connect.php");
+    // include("model/connect.php");
     
+	$path = $_SERVER['DOCUMENT_ROOT'] . '/0_intro/8_MVC_CRUD/Programacion-PHP/';
+    include($path . "model/connect.php");
+
 	class DAOcourse{
 		function insert_course($datos){
 			// die('<script>console.log('.json_encode( $datos ) .');</script>');
@@ -98,5 +101,34 @@
             $res = mysqli_query($conexion, $sql);
             connect::close($conexion);
             return $res;
+		}
+
+		function delete_all_course(){
+			$sql = "DELETE FROM course";
+			// die('<script>console.log('.json_encode( $sql ) .');</script>');
+			$conexion = connect::con();
+            $res = mysqli_query($conexion, $sql);
+            connect::close($conexion);
+
+            return $res;
+		}
+
+		function insert_dummies(){
+			$sql = " DELETE FROM course;
+			INSERT INTO `course` (`id`, `name`, `description`, `category`, `lvl`, `fini`, `ffin`, `price`, `hours`, `idioma`, `state`) VALUES
+			(1, 'HTML', 'Curso de HTML web', 'Frontend', 'Principiante', '10/11/2025', '10/12/2025', 150, 40, 'Frances', 'Online:'),
+			(2, 'Desarrollo', 'Curso de desarrollo web', 'Backend', 'Avanzado', '20/05/2024', '20/06/2024', 180, 50, 'Portugues', 'Presencial:'),
+			(3, 'Desplegamiento', 'Curso de desplegamiento web', 'FullStack', 'Medio', '21/02/2024', '10/07/2024', 599, 120, 'Aleman', 'Online:Presencial:'),
+			(4, 'IA', 'Curso de IA', 'Backend', 'Principiante', '10/03/2024', '10/04/2024', 150, 40, 'Italiano', 'Online:Presencial:'),
+			(5, 'Python', 'Curso de python para gente con experiencia', 'Backend', 'Avanzado', '20/05/2024', '20/06/2024', 180, 50, 'Aleman', 'Presencial:'),
+			(6, 'Java', 'Curso de java', 'FullStack', 'Medio', '21/02/2024', '10/07/2024', 599, 120, 'Portugues', 'Online:Presencial:'),
+			(7, 'PHP', 'Curso de PHP web', 'Backend', 'Principiante', '10/03/2024', '10/04/2024', 150, 40, 'Aleman', 'Online:');
+			";
+			// die('<script>console.log('.json_encode( $sql ) .');</script>');
+			$conexion = connect::con();
+			$res = mysqli_multi_query($conexion, $sql);
+			connect::close($conexion);
+
+			return $res;
 		}
 	}

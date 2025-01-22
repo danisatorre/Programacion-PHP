@@ -1,12 +1,4 @@
 <?php
-    // function validate_id($id){
-    //     $sql = "SELECT * FROM course WHERE id='$id'";
-
-    //     $conexion = connect::con();
-    //     $res = mysqli_query($conexion, $sql)->fetch_object();
-    //     connect::close($conexion);
-    //     return $res;
-    // }
 
     function validate_name($name){
         // $data = 'hola validate name (inicio) php';
@@ -34,6 +26,15 @@
         // $data = 'hola validate name (final) php';
         // die ('<script>console.log('.json_encode( $data ) .');</script>');
     }
+
+    function validate_name_update($name){
+        $sql = "SELECT * FROM course WHERE name='$name'";
+        
+        $conexion = connect::con();
+        $res = mysqli_query($conexion, $sql)->fetch_row();
+        connect::close($conexion);
+        return $res;
+    }
     
     function validate() {
         // $data = 'hola validate php';
@@ -41,19 +42,11 @@
 
         $check = true;
 
-        // $id = $_POST['id'];
         $name = $_POST['name'];
-        // $id = validate_id($id);
         $name_exists = validate_name($name);
         // $data = 'hola name php';
         // die ('<script>console.log('.json_encode( $data ) .');</script>');
 
-        // if($id !== null){
-        //     echo '<script language="javascript">setTimeout(() => {
-        //         toastr.error("El id no puede estar repetido");
-        //     }, 1000);</script>';
-        //     $check = false;
-        // }
 
         if($name_exists > 0){;
             // $data = 'hola name_exists php';
@@ -65,5 +58,22 @@
         }else{
             return $check;   
         }
+    }
+
+    function validate_update() {
+        $check = true;
+
+        $name = $_POST['name'];
+        $name = validate_name_update($name);
+
+        if($name !== null){
+            if($name[1] !== $_POST['old_name']){
+                echo '<script language="javascript">setTimeout(() => {
+                    toastr.error("El nombre introducido esta en úso por otro curso");
+                }, 1000);</script>';
+                $check = false;
+            }
+        }
+        return $check;
     }
 ?>

@@ -119,3 +119,30 @@ h1{
     align-items: center;
 	flex-direction: column;
 }
+#filter{
+	color:#3c9822;
+	font-size: 30px;
+}
+.course{
+	background-color:blue;
+	-moz-border-radius:28px;
+	-webkit-border-radius:28px;
+	border-radius:28px;
+	border:1px solid blue;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:16px 31px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+	margin-right:-9%;
+}
+.course:hover {
+	background-color:cyan;
+}
+.course:active{
+	position:relative;
+	top:1px;
+}
