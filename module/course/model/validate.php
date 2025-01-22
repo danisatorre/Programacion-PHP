@@ -67,7 +67,7 @@
         $name = validate_name_update($name);
 
         if($name !== null){
-            if($name[1] !== $_POST['name_old']){
+            if($name[1] !== $_POST['old_name']){
                 echo '<script language="javascript">setTimeout(() => {
                     toastr.error("El nombre introducido esta en úso por otro curso");
                 }, 1000);</script>';

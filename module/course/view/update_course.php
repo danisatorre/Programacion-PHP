@@ -13,6 +13,8 @@
             <tr>
                 <!-- <td>ID: </td> -->
                 <td><input type="hidden" id="id" name="id" placeholder="id" value="<?php echo $course['id'];?>" readonly/></td>
+                <!-- nombre antiguo -->
+                <input type="hidden" id="old_name" name="old_name" value="<?php echo $course['name'];?>"/>
             </tr>
 
             <tr>

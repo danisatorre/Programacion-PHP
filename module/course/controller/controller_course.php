@@ -82,7 +82,7 @@
                                 window.location.href = "index.php?page=controller_course&op=list";
                             }
                         });
-                    </script>';
+                        </script>';
             		}else{
             			$callback = 'index.php?page=503';
     			        die('<script>window.location.href="'.$callback .'";</script>');
@@ -130,6 +130,8 @@
                         // die('<script>console.log('.json_encode( $data ) .');</script>');
                         $daocourse = new DAOcourse();
     		            $rdo = $daocourse->update_course($_POST);
+                        $name = $_POST['name'];
+                        // die('<script>console.log('.json_encode( $name ) .');</script>');
                         // die('<script>console.log('.json_encode( $rdo ) .');</script>');
                         // die('<script>console.log('.json_encode( $_POST ) .');</script>');
                         // $data = 'hola update valid (final) validate_course.js course';
@@ -143,12 +145,16 @@
                     
 		            if($rdo){
                         // die('<script>console.log('.json_encode( $rdo ) .');</script>');
-            			echo '<script language="javascript">setTimeout(() => {
-                            toastr.success("Curso modificado correctamente");
-                        }, 1000);</script>';
-                        echo '<script language="javascript">setTimeout(() => {
-                            window.location.href="index.php?page=controller_course&op=list";
-                        }, 2000);</script>';
+            			echo '<script>
+                        Swal.fire({
+                            title: "Curso eliminado!",
+                            text: "El curso de ' . $name . ' ha sido actualizado correctamente",
+                            icon: "success",
+                            willClose: () => {
+                                window.location.href = "index.php?page=controller_course&op=list";
+                            }
+                        });
+                        </script>';
             		}else{
                         // $data = 'hola update error validate_course.js course';
                         // die('<script>console.log('.json_encode( $data ) .');</script>');
