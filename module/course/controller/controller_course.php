@@ -7,8 +7,8 @@
 
     switch($_GET['op']){
         case 'list';
-            //$data = 'hola crtl courses list';
-            //die('<script>console.log('.json_encode( $data ) .');</script>');
+            $data = 'hola crtl courses list (branch main)';
+            die('<script>console.log('.json_encode( $data ) .');</script>');
               
             try{
                 $daocourse = new DAOcourse();
