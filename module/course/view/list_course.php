@@ -15,9 +15,15 @@
                     <th width=100><h3 data-tr="Borrar todo">Borrar todo</h3></th>
                 </tr>
                 <tr>
-                    <th><p><a href="index.php?page=controller_course&op=create"><img src="view/img/anadir.png"></a></p></th>
-                    <th><p><a href="index.php?page=controller_course&op=dummies"><img src="view/img/anadir.png"></a></p></th>
-                    <th><p><a href="index.php?page=controller_course&op=delete_all"><img src="view/img/eliminar.png"></a></p></th>
+                    <div class="buttonsactions">
+                        <th><p><a href="index.php?page=controller_course&op=create"><img src="view/img/anadir.png"></a></p></th>
+                    </div>
+                    <div class="buttonsactions">
+                        <th><p><a href="index.php?page=controller_course&op=dummies"><img src="view/img/anadir.png"></a></p></th>
+                    </div>
+                    <div class="buttonsactions">
+                        <th><p><a href="index.php?page=controller_course&op=delete_all"><img src="view/img/eliminar.png"></a></p></th>
+                    </div>
                 </tr>
             </table>
             <?php
@@ -54,7 +60,7 @@
                         echo '</tr>';
                     }else{
                         foreach ($rdo as $row) {
-                       		echo '<tr>';
+                       		echo '<tr id="summary_course">';
                     	   	echo '<td width=125>'. $row['name'] . '</td>';
                             echo '<td width=250>'. $row['description'] . '</td>';
                     	   	echo '<td width=125>'. $row['fini'] . '</td>';

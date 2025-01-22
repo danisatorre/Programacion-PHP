@@ -1,7 +1,7 @@
 .error { color: red;
          font-family: arial;
          font-size: 10pt;
-         fontstyle:italic;
+         font-style:italic;
 }
 body{
     background-color:#F0F0FF;
@@ -145,4 +145,7 @@ h1{
 .course:active{
 	position:relative;
 	top:1px;
+}
+#summary_course:hover{
+	background-color:rgb(224, 224, 224);
 }
