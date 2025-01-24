@@ -89,20 +89,5 @@
 
 <!-- modal window -->
 <section id="modal_course">
-    <div id="details_course" hidden>
-        <div id="details">
-            <div id="container">
-                Nombre: <div id="name_modal"></div></br>
-                Descripción: <div id="desc_modal"></div></br>
-                Categoria: <div id="category_modal"></div></br>
-                Nivel: <div id="lvl_modal"></div></br>
-                Fecha de inicio: <div id="fini_modal"></div></br>
-                Fecha de fin: <div id="ffin_modal"></div></br>
-                Idioma: <div id="lang_modal"></div></br>
-                Estado: <div id="state_modal"></div></br>
-                Precio: <div id="price_modal"></div></br>
-                Horas: <div id="hours_modal"></div></br>
-            </div>
-        </div>
-    </div>
+    
 </section>

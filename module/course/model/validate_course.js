@@ -243,59 +243,122 @@ function operations_course(op){
     }
 }
 
-$(document).ready(function () {
-    // console.log('hola ready js');
+function showModal(name, id, category) {
+    console.log('hola showModal js');
+    // return false;
+    $("#course_details").show();
+    // console.log(course_details);
+    // return false;
+    $("#modal_course").dialog({
+        title: name,
+        width : 850,
+        height: 500,
+        resizable: "false",
+        modal: "true",
+        hide: "fold",
+        show: "fold",
+        buttons : {
+            Update: function() {
+                        window.location.href = "index.php?page=controller_course&op=update&id=" + id;
+                    },
+            Delete: function() {
+                        window.location.href = 'index.php?page=controller_course&op=delete&id=' + id + '&name=' + name + '&category=' + category;
+                    }
+        }
+    });
+}
+
+function loadContentModal() {
+    console.log('hola loadContentModal js');
+    // return false;
     $('.course').click(function () {
         var id = this.getAttribute('id');
-        // console.log(id);
-        // alert(id);
-    // });
-        $.get("module/course/controller/controller_course.php?op=read_modal&modal=" + id, 
-        function (data, status) {
-            var json = JSON.parse(data);
-            console.log(json);
-            
-            if(json === 'error') {
-                //console.log(json);
-                //pintar 503
-                window.location.href='index.php?page=503';
-            }else{
-                console.log(json.course);
-                $("#name_modal").html(json.name);
-                $("#desc_modal").html(json.desc);
-                $("#category_modal").html(json.category);
-                $("#lvl_modal").html(json.lvl);
-                $("#fini_modal").html(json.fini);
-                $("#ffin_modal").html(json.ffin);
-                $("#lang_modal").html(json.lang);
-                $("#state_modal").html(json.state);
-                $("#price_modal").html(json.price);
-                $("#hours_modal").html(json.hours);
-     
-                $("#details_course").show();
-                $("#modal_course").dialog({
-                    width: 850, //<!-- ------------- ancho de la ventana -->
-                    height: 500, //<!--  ------------- altura de la ventana -->
-                    // show: "scale", //<!-- ----------- animación de la ventana al aparecer -->
-                    // hide: "scale", //<!-- ----------- animación al cerrar la ventana -->
-                    resizable: "false", //<!-- ------ fija o redimensionable si ponemos este valor a "true" -->
-                    position: "down", //<!--  ------ posicion de la ventana en la pantalla (left, top, right...) -->
-                    modal: "true", //<!-- ------------ si esta en true bloquea el contenido de la web mientras la ventana esta activa (muy elegante) -->
-                    buttons: {
-                        Ok: function () {
-                            $(this).dialog("close");
-                        }
-                    },
-                    show: {
-                        effect: "blind",
-                        duration: 1000
-                    },
-                    hide: {
-                        effect: "explode",
-                        duration: 1000
-                    }
+        // console.log("ID del curso recogida (loadContentModal): " + id);
+        // return false;
+        ajaxPromise("module/course/controller/controller_course.php?op=read_modal", "POST", "json", {id: id})
+        .then(function(data) {
+            // console.log(data);
+            // return false;
+            // var data = JSON.parse(data);
+            $('<div></div>').attr('id', 'course_details', 'type', 'hidden').appendTo('#modal_course');
+            $('<div></div>').attr('id', 'container').appendTo('#course_details');
+            $('#container').empty();
+            $('<div></div>').attr('id', 'course_content').appendTo('#container');
+            $('#content_course').html(function() {
+                var content = "";
+                for (row in data) {
+                    content += '<br><span>' + row + ': <span id =' + row + '>' + data[row] + '</span></span>';
+                    // console.log(content);
+                    // return false;
+                }
+                return content;
                 });
-            }//end-else
+                showModal(course = data.name + " " + data.category, data.id);
+        })
+        .catch(function() {
+            window.location.href = 'index.php?page=503';
         });
     });
+ }
+
+ $(document).ready(function() {
+    console.log('hola ready js');
+    // return false;
+    loadContentModal();
 });
+
+
+// $(document).ready(function () {
+//     // console.log('hola ready js');
+//     $('.course').click(function () {
+//         var id = this.getAttribute('id');
+//         // console.log(id);
+//     // });
+//         $.get("module/course/controller/controller_course.php?op=read_modal&modal=" + id, 
+//         function (data, status) {
+//             var json = JSON.parse(data);
+//             console.log(json);
+            
+//             if(json === 'error') {
+//                 //console.log(json);
+//                 window.location.href='index.php?page=503';
+//             }else{
+//                 console.log(json.course);
+//                 $("#name_modal").html(json.name);
+//                 $("#desc_modal").html(json.desc);
+//                 $("#category_modal").html(json.category);
+//                 $("#lvl_modal").html(json.lvl);
+//                 $("#fini_modal").html(json.fini);
+//                 $("#ffin_modal").html(json.ffin);
+//                 $("#lang_modal").html(json.lang);
+//                 $("#state_modal").html(json.state);
+//                 $("#price_modal").html(json.price);
+//                 $("#hours_modal").html(json.hours);
+     
+//                 $("#details_course").show();
+//                 $("#modal_course").dialog({
+//                     width: 850, //<!-- ------------- ancho de la ventana -->
+//                     height: 500, //<!--  ------------- altura de la ventana -->
+//                     // show: "scale", //<!-- ----------- animación de la ventana al aparecer -->
+//                     // hide: "scale", //<!-- ----------- animación al cerrar la ventana -->
+//                     resizable: "false", //<!-- ------ fija o redimensionable si ponemos este valor a "true" -->
+//                     position: "down", //<!--  ------ posicion de la ventana en la pantalla (left, top, right...) -->
+//                     modal: "true", //<!-- ------------ si esta en true bloquea el contenido de la web mientras la ventana esta activa (muy elegante) -->
+//                     buttons: {
+//                         Ok: function () {
+//                             $(this).dialog("close");
+//                         }
+//                     },
+//                     show: {
+//                         effect: "blind",
+//                         duration: 1000
+//                     },
+//                     hide: {
+//                         effect: "explode",
+//                         duration: 1000
+//                     }
+//                 });
+//             }//end-else
+//         });
+//     });
+// });

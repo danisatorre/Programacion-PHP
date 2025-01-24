@@ -198,29 +198,29 @@
     		}
             break;
             
-        case 'read';
-            // $data = 'hola crtl course read';
-            // die('<script>console.log('.json_encode( $data ) .');</script>');
-            // die('<script>console.log('.json_encode( $_GET['id'] ) .');</script>');
+        // case 'read';
+        //     // $data = 'hola crtl course read';
+        //     // die('<script>console.log('.json_encode( $data ) .');</script>');
+        //     // die('<script>console.log('.json_encode( $_GET['id'] ) .');</script>');
 
-            try{
-                $daocourse = new DAOcourse();
-                // die('<script>console.log('.json_encode( $daocourse ) .');</script>');
-            	$rdo = $daocourse->select_course($_GET['id']);
-                // die('<script>console.log('.json_encode( $rdo ) .');</script>');
-            	$id=get_object_vars($rdo);
-                //die('<script>console.log('.json_encode( $id ) .');</script>');
-            }catch (Exception $e){
-                $callback = 'index.php?page=503';
-			    die('<script>window.location.href="'.$callback .'";</script>');
-            }
-            if(!$rdo){
-    			$callback = 'index.php?page=503';
-    			die('<script>window.location.href="'.$callback .'";</script>');
-    		}else{
-                include("module/course/view/read_course.php");
-    		}
-            break;
+        //     try{
+        //         $daocourse = new DAOcourse();
+        //         // die('<script>console.log('.json_encode( $daocourse ) .');</script>');
+        //     	$rdo = $daocourse->select_course($_GET['id']);
+        //         // die('<script>console.log('.json_encode( $rdo ) .');</script>');
+        //     	$id=get_object_vars($rdo);
+        //         //die('<script>console.log('.json_encode( $id ) .');</script>');
+        //     }catch (Exception $e){
+        //         $callback = 'index.php?page=503';
+		// 	    die('<script>window.location.href="'.$callback .'";</script>');
+        //     }
+        //     if(!$rdo){
+    	// 		$callback = 'index.php?page=503';
+    	// 		die('<script>window.location.href="'.$callback .'";</script>');
+    	// 	}else{
+        //         include("module/course/view/read_course.php");
+    	// 	}
+        //     break;
             
         case 'delete';
             // $data = 'hola crtl course delete';
@@ -368,12 +368,15 @@
 
         case 'read_modal':
             
-            // echo $_GET['modal'];
+            // $data = 'hola crtl course read_modal';
+            // die('<script>console.log('.json_encode( $data ) .');</script>');
+
+            // echo $_GET['id'];
             // exit;
             
             try{
                 $daocourse = new DAOcourse();
-                $rdo = $daocourse->select_course($_GET['modal']);
+                $rdo = $daocourse->select_course($_POST['id']);
             }catch (Exception $e){
                 echo json_encode("error");
                 exit;
