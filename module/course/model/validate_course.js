@@ -255,8 +255,8 @@ function showModal(name, id, category) {
         height: 500,
         resizable: "false",
         modal: "true",
-        hide: "fold",
-        show: "fold",
+        hide: "scale",
+        show: "scale",
         buttons : {
             Update: function() {
                         window.location.href = "index.php?page=controller_course&op=update&id=" + id;
@@ -284,9 +284,10 @@ function loadContentModal() {
             $('<div></div>').attr('id', 'container').appendTo('#course_details');
             $('#container').empty();
             $('<div></div>').attr('id', 'course_content').appendTo('#container');
-            $('#content_course').html(function() {
+            $('#course_content').html(function() {
                 var content = "";
                 for (row in data) {
+                    console.log(row);
                     content += '<br><span>' + row + ': <span id =' + row + '>' + data[row] + '</span></span>';
                     // console.log(content);
                     // return false;
