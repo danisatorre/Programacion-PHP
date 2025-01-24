@@ -65,3 +65,8 @@ CREATE:
 3. Validación en javascript (id) (que los valores no esten vacios)
 4. Debugejar que entran correctamente los valores al formulario mediante javascript
 5. Validación en php ($_POST) (que el nombre del curso no se pueda repetar)
+
+AJAX:
+list_course -> read, dejar solo el section de id "course_modal"
+validate_course -> ajax en $_POST
+(new)utils.js -> para toda la web, funcion ajaxPromise
