@@ -5,7 +5,7 @@ function ajaxPromise(sUrl, sType, sTData, sData = undefined) {
     return new Promise((resolve, reject) => {
         $.ajax({ // dirige al servidor
             url: sUrl, // url del servidor
-            type: sType,
+            type: sType, // tipo de petición (GET / POST)
             dataType: sTData,
             data: sData
         }).done((data) => {

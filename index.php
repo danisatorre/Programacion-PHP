@@ -2,7 +2,7 @@
     if ((isset($_GET['page'])) && ($_GET['page']==="controller_course") ){
 		include("view/inc/top_page_course.php");
 	}else{
-		include("view/inc/top_page.php");
+		include("view/inc/top_page_course.php");
 	}
 	//session_start();
 ?>

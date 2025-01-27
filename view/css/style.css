@@ -4,8 +4,7 @@
          font-style:italic;
 }
 body{
-    background-color:#F0F0FF;
-    background-image: url(../img/background.png);
+    background-color:#f44336;
     background-attachment: fixed;
     background-repeat:no-repeat;
 }
@@ -13,19 +12,19 @@ h1{
     font-size: 32pt;
 }
 #wrapper {
-	width:1400px;
+	width:100%;
 	margin:auto;
-	background-color:#FFFFFF;	
+	background-color:#f1f1f1;	
 }
 #header {
 	height:80px;
-	background-image:url(../img/header.jpg);
+	background-color:#f44336;
 	background-repeat:no-repeat;
 	background-size:cover;
 	height:120px;
 }
 #menu {
-	background-image:url(../img/menu.png);
+	background-color:#f44336;
 	height:25px;
 	padding-top:5px;
 	text-align:center;
@@ -42,9 +41,8 @@ h1{
 	padding:20px;
 }
 #footer {
-	background-image:url(../img/menu.png);
+	background-color:#f44336;
 	height:25px;
-	padding-top:5px;
 	text-align:center;
 }
 .Button_green {
