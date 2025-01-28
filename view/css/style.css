@@ -12,7 +12,7 @@ h1{
     font-size: 32pt;
 }
 #wrapper {
-	width:100%;
+	width:99.5%;
 	margin:auto;
 	background-color:#f1f1f1;	
 }
@@ -144,6 +144,10 @@ h1{
 	position:relative;
 	top:1px;
 }
+#summary_course {
+    transition: all 1s ease;
+}
 #summary_course:hover{
 	background-color:rgb(224, 224, 224);
+	transform: scale(1.1);
 }
