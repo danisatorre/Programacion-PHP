@@ -244,7 +244,8 @@ function operations_course(op){
 }
 
 function showModal(name, id, category) {
-    console.log('hola showModal js');
+    // console.log('hola showModal js');
+    // console.log("NAME: "+ name + " ID: " + id + " CATEGORY: " + category);
     // return false;
     $("#course_details").show();
     // console.log(course_details);
@@ -294,7 +295,7 @@ function loadContentModal() {
                 }
                 return content;
                 });
-                showModal(course = data.name + " " + data.category, data.id);
+                showModal(course = data.name, data.id, data.category);
         })
         .catch(function() {
             window.location.href = 'index.php?page=503';

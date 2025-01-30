@@ -10,9 +10,9 @@
     	<div class="row">
             <table>
                 <tr>
-                    <th width=100><h3 data-tr="Añadir">Añadir Curso</h3></th>
-                    <th width=100><h3 data-tr="Dummies">Dummies</h3></th>
-                    <th width=100><h3 data-tr="Borrar todo">Borrar todo</h3></th>
+                    <th width=300><h3 data-tr="Añadir">Añadir Curso</h3></th>
+                    <th width=300><h3 data-tr="Dummies">Dummies</h3></th>
+                    <th width=300><h3 data-tr="Borrar todo">Borrar todo</h3></th>
                 </tr>
                 <tr>
                     <div class="buttonsactions">
@@ -32,13 +32,14 @@
                 <a><b id="filter">Filtros:</b>
                    <tr>
                         <td>Idioma: </td>
-                        <td><select id="fidioma" name="fidioma" placeholder="idioma">
-                            <option value="Inglés">Inglés</option>
-                            <option value="Español">Español</option>
-                            <option value="Portugues">Portugues</option>
-                            <option value="Frances">Frances</option>
-                            <option value="Italiano">Italiano</option>
-                            <option value="Aleman">Aleman</option>
+                        <td>
+                            <select id="fidioma" name="fidioma" placeholder="idioma">
+                                <option value="Inglés">Inglés</option>
+                                <option value="Español">Español</option>
+                                <option value="Portugues">Portugues</option>
+                                <option value="Frances">Frances</option>
+                                <option value="Italiano">Italiano</option>
+                                <option value="Aleman">Aleman</option>
                             </select>
                         </td>
                     </tr>
