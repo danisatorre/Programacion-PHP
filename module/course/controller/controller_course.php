@@ -77,7 +77,7 @@
 		            if($rdo){
                         echo '<script>
                         Swal.fire({
-                            title: "Curso eliminado!",
+                            title: "Curso creado!",
                             text: "El curso de ' . $name . ' ha sido creado correctamente",
                             icon: "success",
                             willClose: () => {
@@ -149,7 +149,7 @@
                         // die('<script>console.log('.json_encode( $rdo ) .');</script>');
             			echo '<script>
                         Swal.fire({
-                            title: "Curso eliminado!",
+                            title: "Curso actualizado!",
                             text: "El curso de ' . $name . ' ha sido actualizado correctamente",
                             icon: "success",
                             willClose: () => {
