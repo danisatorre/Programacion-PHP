@@ -3,10 +3,7 @@
     $id=$_GET['id'];
     // die('<script>console.log('.json_encode( $id ) .');</script>');
     ?>
-    <?php
-    // die('<script>console.log('.json_encode( $id ) .');</script>');
-    echo'<form autocomplete="on" method="post" name="aupdate_course" id="aupdate_course" onsubmit="return validate();" action="index.php?page=controller_course&op=update&id='.$id.'">';
-    ?>
+    <form autocomplete="on" method="post" name="update_course" id="update_course">
         <h1>Modificar curso</h1>
         <table border='0'>
 
@@ -268,7 +265,7 @@
             </tr>
             
             <tr>
-                <td><input type="submit" name="update" id="update"/></td>
+                <td><input type="button" name="update" id="update" onclick="validate('update')" value="Actualizar curso"/></td>
                 <td align="right"><a href="index.php?page=controller_course&op=list">Volver</a></td>
             </tr>
         </table>

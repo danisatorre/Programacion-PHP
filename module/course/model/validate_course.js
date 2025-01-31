@@ -243,12 +243,16 @@ function validate(op) {
 
     if (check){
         if (op == 'create'){
+            // console.log("validate_course js create");
+            // return false;
             document.getElementById('add_course').submit();
             document.getElementById('add_course').action = "index.php?page=controller_course&op=create";
         }
         if (op == 'update'){
-            document.getElementById('update_car').submit();
-            document.getElementById('update_car').action = "index.php?page=controller_course&op=update";
+            // console.log("validate_course js update");
+            // return false;
+            document.getElementById('update_course').submit();
+            document.getElementById('update_course').action = "index.php?page=controller_course&op=update";
         }
     }
 }
