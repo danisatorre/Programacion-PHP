@@ -141,6 +141,27 @@ function validate(op) {
     var r_hours = validate_hours(v_hours);
     // console.log("Hours " + r_hours);
 
+    // revisar que la fecha de fin sea posterior a la de inicio
+    var dfini = document.getElementById('fini').value;
+    var dffin = document.getElementById('ffin').value;
+    // convertir fechas al formato yyyy/mm/dd para poder compararlas
+    var array_fini = dfini.split("/");
+    var array_ffin = dffin.split("/");
+
+    //debug para visualizar el array de las fechas
+    // console.log(array_fini);
+    // console.log(array_ffin);
+    // return false;
+
+    var date_fini = new Date(array_fini[2], array_fini[1] -1, array_fini[0]);
+    // console.log(date_fini);
+    // return false;
+    var date_ffin = new Date(array_ffin[2], array_ffin[1] -1, array_ffin[0]);
+    // console.log(date_ffin);
+    // return false;
+
+    //
+
     if (!r_name) {
         document.getElementById('error_name').innerHTML = " * El nombre introducido no es valido";
         // console.log(r_name);
@@ -182,7 +203,12 @@ function validate(op) {
         document.getElementById('error_ffin').innerHTML = " * Introduce una fecha válida";
         check = false;
     } else {
-        document.getElementById('error_ffin').innerHTML = "";
+        if(date_ffin <= date_fini){
+            document.getElementById('error_ffin').innerHTML = " * La fecha de fin debe ser posterior a la fecha de inicio";
+            check = false;
+        }else{
+            document.getElementById('error_ffin').innerHTML = "";
+        }
         // check = true;
     }
     if (!r_idioma) {
@@ -270,7 +296,7 @@ function showModal(name, id, category) {
 }
 
 function loadContentModal() {
-    console.log('hola loadContentModal js');
+    // console.log('hola loadContentModal js');
     // return false;
     $('.course').click(function () {
         var id = this.getAttribute('id');
@@ -304,7 +330,7 @@ function loadContentModal() {
  }
 
  $(document).ready(function() {
-    console.log('hola ready js');
+    // console.log('hola ready js');
     // return false;
     loadContentModal();
 });

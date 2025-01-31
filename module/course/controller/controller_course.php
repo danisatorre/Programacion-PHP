@@ -232,8 +232,15 @@
                 // die('<script>console.log('.json_encode( $_GET['id'] ) .');</script>');
                 try{
                     $daocourse = new DAOcourse();
-                	$rdo = $daocourse->delete_course($_GET['id']);
+                    if($_GET){
+                        $rdo = $daocourse->delete_course($_GET['id']);
+                    }else if($_POST){
+                        $rdo = $daocourse->delete_course($_POST['id']);
+                    }
+                	// $rdo = $daocourse->delete_course($_GET['id']);
                     $name = $_GET['name'];
+                    // $rdo = $_GET['id'];
+                    // console.log($rdo);
                     // die('<script>console.log('.json_encode( $name ) .');</script>');
                 }catch (Exception $e){
                     $callback = 'index.php?page=503';
@@ -258,7 +265,15 @@
             
             try{
                 $daocourse = new DAOcourse();
-                $rdo = $daocourse->select_course($_GET['id']);
+                if($_GET){
+                    // $data = 'hola crtl course delete GET';
+                    // die('<script>console.log('.json_encode( $data ) .');</script>');
+                    $rdo = $daocourse->select_course($_GET['id']);
+                }else if($_POST){
+                    // $data = 'hola crtl course delete POST';
+                    // die('<script>console.log('.json_encode( $data ) .');</script>');
+                    $rdo = $daocourse->select_course($_POST['id']);
+                }
                 $course=get_object_vars($rdo);
             }catch (Exception $e){
                 $callback = 'index.php?page=controller_course&op=503';
