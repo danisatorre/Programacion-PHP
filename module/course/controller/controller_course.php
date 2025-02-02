@@ -269,13 +269,21 @@
                     // $data = 'hola crtl course delete GET';
                     // die('<script>console.log('.json_encode( $data ) .');</script>');
                     $rdo = $daocourse->select_course($_GET['id']);
+                    // $course=get_object_vars($rdo);
                 }else if($_POST){
                     // $data = 'hola crtl course delete POST';
                     // die('<script>console.log('.json_encode( $data ) .');</script>');
                     $rdo = $daocourse->select_course($_POST['id']);
+                    // $course=get_object_vars($rdo);
                 }
                 $course=get_object_vars($rdo);
+                if(!$rdo){
+                    $callback = 'index.php?page=503';
+                    die('<script>window.location.href="'.$callback .'";</script>');
+                }
             }catch (Exception $e){
+                // $data = 'hola crtl course delete catch Exception';
+                // die('<script>console.log('.json_encode( $data ) .');</script>');
                 $callback = 'index.php?page=controller_course&op=503';
                 die('<script>window.location.href="'.$callback .'";</script>');
             }
