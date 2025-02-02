@@ -362,17 +362,30 @@
                     $daocourse = new DAOcourse();
                     $rdo = $daocourse -> insert_dummies();
                 }catch (Exception $e){
+                    // $data = 'hola crtl course dummies catch Exceotion';
+                    // die('<script>console.log('.json_encode( $data ) .');</script>');
                     $callback = 'index.php?page=controller_course&op=503';
                     die('<script>window.location.href="'.$callback .'";</script>');
                 }
     
                 if($rdo){
-                    echo '<script language="javascript">setTimeout(() => {
-                        toastr.success("Cursos creados correctamente");
-                    }, 1000);</script>';
-                    $callback = 'index.php?page=controller_course&op=list';
-			        die('<script>window.location.href="'.$callback .'";</script>');
+                    // $data = 'hola crtl course dummies rdo yes';
+                    // die('<script>console.log('.json_encode( $data ) .');</script>');
+                    echo '<script>
+                            Swal.fire({
+                                title: "Cursos creados!",
+                                text: "Cursos creados correctamente",
+                                icon: "success",
+                                willClose: () => {
+                                    window.location.href = "index.php?page=controller_course&op=list";
+                                }
+                            });
+                          </script>';
+                    // $callback = 'index.php?page=controller_course&op=list';
+			        // die('<script>window.location.href="'.$callback .'";</script>');
                 }else{
+                    // $data = 'hola crtl course dummies rdo no';
+                    // die('<script>console.log('.json_encode( $data ) .');</script>');
                     $callback = 'index.php?page=controller_course&op=503';
                     die('<script>window.location.href="'.$callback .'";</script>');
                 }
