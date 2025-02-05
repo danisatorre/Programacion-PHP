@@ -6,7 +6,7 @@
     		$pass = "root";                             
     		$db = "w3schools";                      
     		$port = 3307;                           
-    		$tabla="course";
+    		$tabla="productos";
     		
     		$conexion = mysqli_connect($host, $user, $pass, $db, $port)or die(mysql_error());
 			return $conexion;

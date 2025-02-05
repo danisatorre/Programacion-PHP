@@ -7,6 +7,9 @@
 			case "controller_course";
 				include("module/course/controller/".$_GET['page'].".php");
 				break;
+			case "controller_product";
+				include("module/product/controller/".$_GET['page'].".php");
+				break;
 			case "services";
 				include("module/services/".$_GET['page'].".php");
 				break;

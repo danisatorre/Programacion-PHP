@@ -10,7 +10,7 @@
     <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     <a href="index.php?page=homepage" class="w3-bar-item w3-button w3-padding-large w3-white">Inicio</a>
     <a href="index.php?page=controller_course&op=list" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Cursos</a>
-    <a href="index.php?page=services" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Servicios</a>
+    <a href="index.php?page=controller_product&op=list" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Productos</a>
     <a href="index.php?page=aboutus" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Conocenos</a>
     <a href="index.php?page=contactus" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Contacto</a>
   </div>

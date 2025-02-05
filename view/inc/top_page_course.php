@@ -38,6 +38,7 @@
 		<!-- JS -->
 		<script src="view/js/utils.js"></script>
 	    <script src="module/course/model/validate_course.js"></script>
+		<script src="module/product/model/validate_product.js"></script>
 		<script src="module/course/model/select_lang.js"></script>
 		<!-- CLOUDFARE -->
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
