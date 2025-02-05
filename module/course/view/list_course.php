@@ -27,7 +27,7 @@
                 </tr>
             </table>
             <?php
-                echo'<form autocomplete="on" method="post" name="filters" id="filters" onsubmit="return selang();">';
+                echo'<form autocomplete="on" method="post" name="filters" id="filters">';
             ?>
                 <a><b id="filter">Filtros:</b>
                    <tr>
@@ -44,7 +44,7 @@
                         </td>
                     </tr>
                  </a>
-                <input type="submit" name="confirm" id="confirm" value="Buscar..."/>
+                <input type="button" name="confirm" id="confirm" onclick="return selang()" value="Buscar..."/>
             <table>
                 <tr>
                     <td width=125><b>NOMBRE</b></th>
