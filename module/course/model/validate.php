@@ -64,6 +64,7 @@
         $check = true;
 
         $name = $_POST['name'];
+        // die('<script>console.log('.json_encode( $name ) .');</script>');
         $name = validate_name_update($name);
 
         if($name !== null){
