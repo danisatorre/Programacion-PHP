@@ -7,7 +7,7 @@
         if (!$conexion) {
             die('<script>console.log("Error al conectar a la base de datos.");</script>');
         }
-        $sql = "SELECT * FROM productos WHERE name='$name'";
+        $sql = "SELECT * FROM productos WHERE nom_prod='$name'";
         // $data = 'Consulta SQL generada: ' . $sql;
         // die ('<script>console.log('.json_encode( $data ) .');</script>');
         $res = mysqli_query($conexion, $sql);
@@ -28,7 +28,7 @@
     }
 
     function validate_name_update($name){
-        $sql = "SELECT * FROM productos WHERE name='$name'";
+        $sql = "SELECT * FROM productos WHERE nom_prod='$name'";
         
         $conexion = connect::con();
         $res = mysqli_query($conexion, $sql)->fetch_row();
@@ -56,6 +56,8 @@
             }, 1000);</script>';
             $check = false;
         }else{
+            // $data = 'hola name no exists php';
+            // die ('<script>console.log('.json_encode( $data ) .');</script>');
             return $check;   
         }
     }
@@ -63,12 +65,16 @@
     function validate_update() {
         $check = true;
 
-        $name = $_POST['name'];
+        $name = $_POST['nom_prod'];
         // die('<script>console.log('.json_encode( $name ) .');</script>');
         $name = validate_name_update($name);
+        // die('<script>console.log('.json_encode( $name ) .');</script>');
 
         if($name !== null){
-            if($name[1] !== $_POST['old_name']){
+            // die('<script>console.log('.json_encode( $name ) .');</script>');
+            if($name[4] !== $_POST['old_name_prod']){
+                // die('<script>console.log('.json_encode( $_POST['old_name_prod'] ) .');</script>');
+                // die('<script>console.log('.json_encode( $name[4] ) .');</script>');
                 echo '<script language="javascript">setTimeout(() => {
                     toastr.error("El nombre introducido esta en úso por otro producto");
                 }, 1000);</script>';

@@ -158,7 +158,7 @@
 
             <tr>
                 <td>Precio: </td>
-                <td><input type="text" id="price" name="price" placeholder="precio" value=""/></td>
+                <td><input type="text" id="precio" name="precio" placeholder="precio" value=""/></td>
                 <td><font color="red">
                     <span id="error_price" class="error">
                         <?php

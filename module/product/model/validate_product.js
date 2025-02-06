@@ -141,16 +141,24 @@ function validate_product(op) {
     // console.log(v_name);
     // return false;
     var v_description = document.getElementById('descripcion').value;
+    // console.log(v_description);
+    // return false;
     var v_category = document.getElementsByName('categoria');
-    var v_marca = document.getElementsByName('marca');
+    // console.log(v_category);
+    // return false;
+    var v_marca = document.getElementById('marca').value;
+    // console.log(v_marca);
+    // return false;
     var v_fini = document.getElementById('fini').value;
     var v_ffin = document.getElementById('ffin').value;
     var v_tipo = document.getElementsByName('tipo');
     var v_sexo = document.getElementsByName('sexo[]');
-    var v_price = document.getElementById('price').value;
+    var v_price = document.getElementById('precio').value;
     var v_talla = document.getElementById('talla').value;
-    var v_entrega = document.getElementById('entrega').value;
-    var v_condicion = document.getElementById('condicion').value;
+    var v_entrega = document.getElementsByName('entrega');
+    // console.log(v_entrega);
+    // return false;
+    var v_condicion = document.getElementsByName('condicion');
     var v_stock = document.getElementById('stock').value;
 
     var r_name = validate_name(v_name);
@@ -158,15 +166,15 @@ function validate_product(op) {
     // return false;
     var r_description = validate_description(v_description);
     // console.log("Description " + r_description);
-    var r_category = validate_tipo(v_category);
+    var r_category = validate_category(v_category);
     // console.log("Category " + r_category);
-    var r_marca = validate_talla(v_marca);
+    var r_marca = validate_marca(v_marca);
     // console.log("Lvl " + r_lvl);
     var r_fini = validate_fini(v_fini);
     // console.log("Fini " + r_fini);
     var r_ffin = validate_ffin(v_ffin);
     // console.log("Ffin " + r_ffin);
-    var r_tipo = validate_tipo(v_tipo);
+    var r_tipo = validate_category(v_tipo);
     // console.log("Idioma " + r_idioma);
     var r_sexo = validate_sexo(v_sexo);
     // console.log("State " + r_state);
@@ -174,8 +182,8 @@ function validate_product(op) {
     // console.log("Price " + r_price);
     var r_talla = validate_talla(v_talla);
     // console.log("Hours " + r_hours);
-    var r_entrega = validate_tipo(v_entrega);
-    var r_condicion = validate_tipo(v_condicion);
+    var r_entrega = validate_entrega(v_entrega);
+    var r_condicion = validate_condicion(v_condicion);
     var r_stock = validate_stock(v_stock);
 
     // revisar que la fecha de fin sea posterior a la de inicio

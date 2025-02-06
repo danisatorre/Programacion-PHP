@@ -52,16 +52,16 @@
             // die('<script>console.log('.json_encode( $data ) .');</script>');
             // die('<script>console.log('.json_encode( $_POST ) .');</script>');
 
-            // include("module/product/model/validate.php");
+            include("module/product/model/validate.php");
             
-            $check = true;
+            // $check = true;
             
             if ($_POST){
                 // $data = 'hola create post product';
                 // die('<script>console.log('.json_encode( $data ) .');</script>');
                 // die('<script>console.log('.json_encode( $_POST ) .');</script>');
 
-                // $check=validate();
+                $check=validate();
                 // die('<script>console.log('.json_encode( $check ) .');</script>');
 
                 if ($check){
@@ -70,6 +70,8 @@
                         $daoproduct = new DAOproduct();
     		            $rdo = $daoproduct->insert_product($_POST);
                         // die('<script>console.log('.json_encode( $rdo ) .');</script>');
+                        $name = $_POST['nom_prod'];
+                        // die('<script>console.log('.json_encode( $name ) .');</script>');
                     }catch (Exception $e){
                         $callback = 'index.php?page=503';
         			    die('<script>window.location.href="'.$callback .'";</script>');
@@ -78,8 +80,8 @@
 		            if($rdo){
                         echo '<script>
                         Swal.fire({
-                            title: "Producto creado!",
-                            text: "El producto ha sido creado correctamente",
+                            title: "Curso creado!",
+                            text: "El producto ' . $name . ' ha sido creado correctamente",
                             icon: "success",
                             willClose: () => {
                                 window.location.href = "index.php?page=controller_product&op=list";
@@ -136,7 +138,7 @@
                         // die('<script>console.log('.json_encode( $data ) .');</script>');
                         $daoproduct = new DAOproduct();
     		            $rdo = $daoproduct->update_product($_POST);
-                        $name = $_POST['name'];
+                        $nom_prod = $_POST['nom_prod'];
                         // die('<script>console.log('.json_encode( $name ) .');</script>');
                         // die('<script>console.log('.json_encode( $rdo ) .');</script>');
                         // die('<script>console.log('.json_encode( $_POST ) .');</script>');
@@ -154,7 +156,7 @@
             			echo '<script>
                         Swal.fire({
                             title: "Curso actualizado!",
-                            text: "El curso de ' . $name . ' ha sido actualizado correctamente",
+                            text: "El producto ' . $nom_prod . ' ha sido actualizado correctamente",
                             icon: "success",
                             willClose: () => {
                                 window.location.href = "index.php?page=controller_product&op=list";
@@ -178,7 +180,7 @@
                 // die('<script>console.log('.json_encode( $_GET['id'] ) .');</script>');
                 $daoproduct = new DAOproduct();
                 // die('<script>console.log('.json_encode( $daoproduct ) .');</script>');
-                $id=$_GET['id'];
+                $id=$_GET['id_producto'];
                 // die('<script>console.log('.json_encode( $id ) .');</script>');
                 if(isset($id)){
                     // $data = 'hola update $ID product';

@@ -15,7 +15,7 @@
         	$nom_prod=$datos['nom_prod'];
         	$entrega=$datos['entrega'];
         	$talla=$datos['talla'];
-			foreach ($datos['sexo_prod'] as $indice) {
+			foreach ($datos['sexo'] as $indice) {
         	    $sexo_prod=$sexo_prod."$indice:";
         	}
         	$descripcion=$datos['descripcion'];
@@ -46,7 +46,7 @@
             return $res;
 		}
 		
-		function select_product($id){
+		function select_product($id_producto){
 			// $data = 'hola DAO select_product';
             // die('<script>console.log('.json_encode( $data ) .');</script>');
 			$sql = "SELECT * FROM productos WHERE id_producto='$id_producto'";
@@ -59,27 +59,27 @@
 
         function update_product($datos){
 			// die('<script>console.log('.json_encode( $datos ) .');</script>');
-			$state="";
+			$sexo_prod="";
 
 			$id_producto=$datos['id_producto'];
-        	$marca=$datos['marca'];
+			$marca=$datos['marca'];
         	$categoria=$datos['categoria'];
         	$tipo=$datos['tipo'];
         	$nom_prod=$datos['nom_prod'];
         	$entrega=$datos['entrega'];
         	$talla=$datos['talla'];
-			foreach ($datos['sexo_prod'] as $indice) {
+			foreach ($datos['sexo'] as $indice) {
         	    $sexo_prod=$sexo_prod."$indice:";
         	}
-        	$descripcion=$datos['price'];
-			$condicion=$datos['hours'];
-            $stock=$datos['hours'];
-            $precio=$datos['hours'];
-            $fini=$datos['hours'];
-            $ffin=$datos['hours'];
+        	$descripcion=$datos['descripcion'];
+			$condicion=$datos['condicion'];
+            $stock=$datos['stock'];
+            $precio=$datos['precio'];
+            $fini=$datos['fini'];
+            $ffin=$datos['ffin'];
         	
-        	$sql = " UPDATE productos SET name='$name', description='$description', category='$category', lvl='$lvl', fini='$fini', ffin='$ffin', price='$price', hours='$hours', idioma='$idioma', state='$state' "
-        		. "WHERE id='$id';";
+        	$sql = " UPDATE productos SET marca='$marca', categoria='$categoria', tipo='$tipo', nom_prod='$nom_prod', sexo_prod='$sexo_prod', talla='$talla', entrega='$entrega', descripcion='$descripcion', condicion='$condicion', stock='$stock', precio='$precio', fini='$fini', ffin='$ffin' "
+        		. "WHERE id_producto='$id_producto';";
 			// die('<script>console.log('.json_encode( $sql ) .');</script>');
             $conexion = connect::con();
             $res = mysqli_query($conexion, $sql);

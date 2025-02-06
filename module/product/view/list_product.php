@@ -26,25 +26,6 @@
                     </div>
                 </tr>
             </table>
-            <?php
-                echo'<form autocomplete="on" method="post" name="filters" id="filters">';
-            ?>
-                <a><b id="filter">Filtros:</b>
-                   <tr>
-                        <td>Idioma: </td>
-                        <td>
-                            <select id="fidioma" name="fidioma" placeholder="idioma">
-                                <option value="Inglés">Inglés</option>
-                                <option value="Español">Español</option>
-                                <option value="Portugues">Portugues</option>
-                                <option value="Frances">Frances</option>
-                                <option value="Italiano">Italiano</option>
-                                <option value="Aleman">Aleman</option>
-                            </select>
-                        </td>
-                    </tr>
-                 </a>
-                <input type="button" name="confirm" id="confirm" onclick="return selang()" value="Buscar..."/>
             <table>
                 <tr>
                     <td width=125><b>NOMBRE</b></th>
@@ -69,14 +50,12 @@
                             echo '<td width=125>'. $row['precio'] . '</td>';
                     	   	echo '<td width=380>';
 
-                            print ("<div class='product' id='".$row['id']."'>Read</div>");  // READ ONE
+                            print ("<div class='product' id='".$row['id_producto']."'>Read</div>");  // READ ONE
                             echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
                             // die('<script>console.log('.json_encode( $row['id'] ) .');</script>');
                     	   	// echo '<a class="Button_blue" href="index.php?page=controller_product&op=read&id_producto='.$row['id_producto'].'">Read</a>';
                     	   	echo '&nbsp;';
                     	   	echo '<a class="Button_green" href="index.php?page=controller_product&op=update&id_producto='.$row['id_producto'].'">Update</a>';
-                    	   	echo '&nbsp;';
-                    	   	echo '<a class="Button_red" href="index.php?page=controller_product&op=delete&id_producto='.$row['id_producto'].'&nom_product='.$row['nom_product'].'&categoria='.$row['categoria'].'">Delete</a>';
                     	   	echo '</td>';
                     	   	echo '</tr>';
                         }
