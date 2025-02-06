@@ -323,9 +323,9 @@ function validate_product(op) {
     }
 }
 
-function showModal(name, id, category) {
+function showModal_product(nom_prod, id_producto, categoria) {
     // console.log('hola showModal js');
-    // console.log("NAME: "+ name + " ID: " + id + " CATEGORY: " + category);
+    // console.log("NAME: "+ nom_prod + " ID: " + id_producto + " CATEGORY: " + categoria);
     // return false;
     $("#product_details").show();
     // console.log(product_details);
@@ -340,23 +340,20 @@ function showModal(name, id, category) {
         show: "scale",
         buttons : {
             Update: function() {
-                        window.location.href = "index.php?page=controller_product&op=update&id=" + id;
-                    },
-            Delete: function() {
-                        window.location.href = 'index.php?page=controller_product&op=delete&id=' + id + '&name=' + name + '&category=' + category;
+                        window.location.href = "index.php?page=controller_product&op=update&id_producto=" + id_producto;
                     }
         }
     });
 }
 
-function loadContentModal() {
+function loadContentModal_product() {
     // console.log('hola loadContentModal js');
     // return false;
     $('.product').click(function () {
-        var id = this.getAttribute('id');
-        // console.log("ID del curso recogida (loadContentModal): " + id);
+        var id_producto = this.getAttribute('id_producto');
+        // console.log("ID del producto recogida (loadContentModal): " + id_producto);
         // return false;
-        ajaxPromise("module/product/controller/controller_product.php?op=read_modal", "POST", "json", {id: id})
+        ajaxPromise("module/product/controller/controller_product.php?op=read_modal", "POST", "json", {id_producto: id_producto})
         .then(function(data) {
             // console.log(data);
             // return false;
@@ -368,14 +365,14 @@ function loadContentModal() {
             $('#product_content').html(function() {
                 var content = "";
                 for (row in data) {
-                    console.log(row);
+                    // console.log(row);
                     content += '<br><span>' + row + ': <span id =' + row + '>' + data[row] + '</span></span>';
                     // console.log(content);
                     // return false;
                 }
                 return content;
                 });
-                showModal(product = data.name, data.id, data.category);
+                showModal_product(product = data.nom_prod, data.id_producto, data.categoria);
         })
         .catch(function() {
             window.location.href = 'index.php?page=503';
@@ -386,5 +383,5 @@ function loadContentModal() {
  $(document).ready(function() {
     // console.log('hola ready js');
     // return false;
-    loadContentModal();
+    loadContentModal_product();
 });

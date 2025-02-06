@@ -11,18 +11,10 @@
             <table>
                 <tr>
                     <th width=300><h3 data-tr="Añadir">Añadir Producto</h3></th>
-                    <th width=300><h3 data-tr="Dummies">Dummies</h3></th>
-                    <th width=300><h3 data-tr="Borrar todo">Borrar todo</h3></th>
                 </tr>
                 <tr>
                     <div class="buttonsactions">
                         <th><p><a href="index.php?page=controller_product&op=create"><img src="view/img/anadir.png"></a></p></th>
-                    </div>
-                    <div class="buttonsactions">
-                        <th><p><a href="index.php?page=controller_product&op=dummies"><img src="view/img/anadir.png"></a></p></th>
-                    </div>
-                    <div class="buttonsactions">
-                        <th><p><a href="index.php?page=controller_product&op=delete_all"><img src="view/img/eliminar.png"></a></p></th>
                     </div>
                 </tr>
             </table>
@@ -33,7 +25,7 @@
                     <td width=125><b>FECHA INICIO</b></th>
                     <td width=125><b>FECHA FIN</b></th>
                     <td width=125><b>PRECIO</b></th>
-                    <th width=380><b>ACCION</b></th>
+                    <th width=250><b>ACCION</b></th>
                 </tr>
                 <?php
                     if ($rdo->num_rows === 0){
@@ -48,9 +40,9 @@
                     	   	echo '<td width=125>'. $row['fini'] . '</td>';
                     	   	echo '<td width=125>'. $row['ffin'] . '</td>';
                             echo '<td width=125>'. $row['precio'] . '</td>';
-                    	   	echo '<td width=380>';
+                    	   	echo '<td width=250>';
 
-                            print ("<div class='product' id='".$row['id_producto']."'>Read</div>");  // READ ONE
+                            print ("<div class='product' id_producto='".$row['id_producto']."'>Read</div>");  // READ ONE
                             echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
                             // die('<script>console.log('.json_encode( $row['id'] ) .');</script>');
                     	   	// echo '<a class="Button_blue" href="index.php?page=controller_product&op=read&id_producto='.$row['id_producto'].'">Read</a>';
@@ -62,7 +54,6 @@
                     }
                 ?>
             </table>
-            <button><a href="index.php?page=controller_product&op=list"><b>VOLVER A TODOS LOS PRODUCTOS</b></a></button>
     	</div>
     </div>
 </div>

@@ -203,5 +203,33 @@
         	    include("module/product/view/update_product.php");
     		}
             break;
+
+        case 'read_modal':
+            
+                // $data = 'hola crtl product read_modal';
+                // die('<script>console.log('.json_encode( $data ) .');</script>');
+    
+                // echo $_GET['id_producto'];
+                // exit;
+                
+                try{
+                    $daoproduct = new DAOproduct();
+                    $rdo = $daoproduct->select_product($_POST['id_producto']);
+                }catch (Exception $e){
+                    echo json_encode("error");
+                    exit;
+                }
+    
+                if(!$rdo){
+                    echo json_encode("error");
+                    exit;
+                }else{
+                    $product = get_object_vars($rdo);
+                    echo json_encode($product);
+                    // echo json_encode("error");
+                    exit;
+                }
+    
+            break;
     }
 ?>
