@@ -3,7 +3,7 @@
     //die('<script>console.log('.json_encode( $data ) .');</script>');
 
     // include ("module/product/model/DAOproduct.php");
-    $path = $_SERVER['DOCUMENT_ROOT'] . '/0_intro/8_MVC_CRUD/Programacion-PHP/';
+    $path = $_SERVER['DOCUMENT_ROOT'] . '/CRUD-PHP/';
     include($path . "module/product/model/DAOproduct.php");
     //session_start();
 

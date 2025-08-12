@@ -1,7 +1,7 @@
 <?php
     // include("model/connect.php");
     
-	$path = $_SERVER['DOCUMENT_ROOT'] . '/0_intro/8_MVC_CRUD/Programacion-PHP/';
+	$path = $_SERVER['DOCUMENT_ROOT'] . '/CRUD-PHP/';
     include($path . "model/connect.php");
 
 	class DAOcourse{
